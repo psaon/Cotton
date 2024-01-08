@@ -9,6 +9,8 @@ set(COTTON_HEADERS
     "Include/Cotton/Core/Details/Compiler.h"
     "Include/Cotton/Core/Details/Endian.h"
     "Include/Cotton/Core/Details/OperatingSystem.h"
+
+    "Include/Cotton/Core/FeatureChecks.h"
     "Include/Cotton/Core/Predefined.h"
 )
 
