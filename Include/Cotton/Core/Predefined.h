@@ -5,3 +5,4 @@
 #include "Cotton/Core/Details/Endian.h"
 #include "Cotton/Core/Details/LanguageVersion.h"
 #include "Cotton/Core/Details/OperatingSystem.h"
+#include "Cotton/Core/Details/SIMD.h"
