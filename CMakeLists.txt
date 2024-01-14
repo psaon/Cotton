@@ -8,6 +8,7 @@ set(COTTON_HEADERS
     "Include/Cotton/Core/Details/Architecture.h"
     "Include/Cotton/Core/Details/Compiler.h"
     "Include/Cotton/Core/Details/Endian.h"
+    "Include/Cotton/Core/Details/LanguageVersion.h"
     "Include/Cotton/Core/Details/OperatingSystem.h"
 
     "Include/Cotton/Core/Attributes.h"
