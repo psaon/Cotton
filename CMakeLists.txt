@@ -17,7 +17,7 @@ set(COTTON_HEADERS
 )
 
 set(COTTON_SOURCES
-    "Source/Temp.cpp"
+    "Source/PolicyCheck.cpp"
 )
 
 option(COTTON_BUILD_SHARED "Build Cotton as a shared library." OFF)
