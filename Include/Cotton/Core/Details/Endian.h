@@ -8,7 +8,8 @@
 
     #define COTTON_ENDIAN_BIG 1
 
-#elif (defined(__BYTE_ORDER__) && __BYTE_ORDER__ == __ORDER_LITTLE_ENDIAN__) ||   \
+#elif COTTON_ARCH_X86_FAMILY || \
+      (defined(__BYTE_ORDER__) && __BYTE_ORDER__ == __ORDER_LITTLE_ENDIAN__) ||   \
       defined(__LITTLE_ENDIAN__) || defined(__ARMEL__) || defined(__THUMBEL__) || \
       defined(__AARCH64EB__) || defined(_MIPSEL) || defined(__MIPSEL) || defined(__MIPSEL__)
 
