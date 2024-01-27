@@ -107,6 +107,9 @@ namespace Cotton
     template<class T>
     using Owner = T;
 
+    // The type of nullptr. Equivalent to ::std::nullptr_t.
+    using NullptrType = decltype(nullptr);
+
     //* Miscellaneous Types
     using Usize = ::std::size_t;
     using Index = ::std::ptrdiff_t;
