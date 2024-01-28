@@ -22,6 +22,9 @@ set(COTTON_SOURCES
 )
 
 option(COTTON_BUILD_SHARED "Build Cotton as a shared library." OFF)
+option(COTTON_BUILD_TESTS "Build Cotton's test executables." OFF)
+
+option(COTTON_USE_EXTERNAL_GTEST "Use installed googletest." OFF)
 
 if (COTTON_BUILD_SHARED)
     add_library(Cotton STATIC ${COTTON_HEADERS} ${COTTON_SOURCES})
@@ -48,4 +51,20 @@ if ("${CMAKE_CXX_COMPILER_ID}" STREQUAL "GNU")
         -Wduplicated-branches
         -Wnull-dereference
     )
+endif()
+
+if (COTTON_BUILD_TESTS)
+    if (COTTON_USE_EXTERNAL_GTEST)
+        find_package(GTest REQUIRED)
+        set(COTTON_GTEST_DIR ${GTEST_ROOT})
+
+    else()
+        set(COTTON_GTEST_DIR "ThirdParty/googletest")
+
+        if (NOT EXISTS ${COTTON_GTEST_DIR})
+            message(FATAL_ERROR "Cannot find googletest dependency in ${COTTON_GTEST_DIR}.")
+        endif()
+
+        add_subdirectory("${COTTON_GTEST_DIR}")
+    endif()
 endif()
