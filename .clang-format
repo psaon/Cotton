@@ -1,0 +1,82 @@
+Language: Cpp
+
+IndentWidth: 4
+ColumnLimit: 90
+
+UseTab: Never
+AlignTrailingComments: true
+SpacesBeforeTrailingComments: 3
+
+UseCRLF: false
+BreakBeforeBraces: Allman
+PointerAlignment: Left
+
+AccessModifierOffset: -4            # Class access modifiers are aligned with class braces.
+AlignAfterOpenBracket: Align        # Wrap and align arguments when function declaration gets too long.
+AlignArrayOfStructures: Left        # Left justify array members.
+AlignConsecutiveMacros: Consecutive # Align macro definitions.
+AlignEscapedNewlines: true          # Align macro newlines ('\')
+AlignTrailingComments:
+    Kind: Always
+    OverEmptyLines: 1
+
+AllowShortFunctionsOnASingleLine: All
+AllowShortLambdasOnASingleLine: All
+AllowShortLoopsOnASingleLine: true
+AllowShortCaseLabelsOnASingleLine: true
+AlwaysBreakTemplateDeclarations: Yes
+
+BinPackArguments: true
+BinPackParameters: true
+BitFieldColonSpacing: Both
+BreakAfterAttributes: Leave
+
+BreakBeforeConceptDeclarations: Always
+BreakBeforeTernaryOperators: false
+
+BreakConstructorInitializers: BeforeColon
+BreakInheritanceList: AfterComma
+BreakStringLiterals: false
+
+CompactNamespaces: false
+Cpp11BracedListStyle: false                     # Add spaces in braces.
+DerivePointerAlignment: false                   # Just use left pointer alignment.
+EmptyLineBeforeAccessModifier: LogicalBlock     # Add empty line when there's a member field/function.
+
+IndentAccessModifiers: false                    # Access modifiers have no indentation level.
+IndentCaseLabels: false                         # Don't indent case labels.
+
+IndentPPDirectives: BeforeHash                  # Indents directives before the hash ('#')
+IndentRequiresClause: true                      # Indent 'requires' clause on function.
+IndentWrappedFunctionNames: true
+
+InsertBraces: false                             # Don't insert braces when not necessary (e.g. one liners)
+InsertNewlineAtEOF: true
+
+LineEnding: LF
+NamespaceIndentation: All                       # Indent nested namespaces.
+PPIndentWidth: 4                                # Preprocessor indent width.
+PackConstructorInitializers: BinPack
+
+ReferenceAlignment: Pointer                     # Align reference like pointer.
+ReflowComments: true                            # Reflow comments according to the column limit.
+RemoveBracesLLVM: true                          # Remove braces according to LLVM style.
+
+RequiresExpressionIndentation: OuterScope       # Indent requires expression to outer scope.
+SeparateDefinitionBlocks: Always                # Seperate structs, classes, enums, and functions.
+
+SortIncludes: false
+SortUsingDeclarations: false
+SpaceAfterCStyleCast: false
+SpaceAfterLogicalNot: false
+SpaceAfterTemplateKeyword: false
+SpaceBeforeAssignmentOperators: true
+SpaceBeforeCaseColon: false
+SpaceBeforeCpp11BracedList: false
+SpaceBeforeInheritanceColon: true
+SpaceBeforeRangeBasedForLoopColon: true
+SpaceBeforeSquareBrackets: false
+SpaceInEmptyBlock: true
+SpacesInLineCommentPrefix:
+    Minimum: 1
+    Maximum: -1

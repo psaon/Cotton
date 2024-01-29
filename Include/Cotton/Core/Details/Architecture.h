@@ -5,16 +5,15 @@
  * Intel x86_32 Architecture
  * i386, __i386          is defined by GCC
  * __i386__ --> __i686__ is defined by GCC
- * _M_IX86               is defined by MSVC, Intel C++, Digital Mars, and Watcom C/C++
- * _M_I386               is defined by Watcom C/C++
+ * _M_IX86               is defined by MSVC, Intel C++, Digital Mars, and Watcom
+ * C/C++ _M_I386               is defined by Watcom C/C++
  */
-#if defined(i386) || defined(__i386) ||                                                 \
-    defined(__i386__) || defined(__i486__) || defined(__i586__) || defined(__i686__) || \
-    defined(_M_IX86) || defined(_M_I386)
+#if defined(i386) || defined(__i386) || defined(__i386__) || defined(__i486__) || \
+    defined(__i586__) || defined(__i686__) || defined(_M_IX86) || defined(_M_I386)
 
-    #define COTTON_ARCH_X86_32 1
+    #define COTTON_ARCH_X86_32     1
     #define COTTON_ARCH_X86_FAMILY 1
-    #define COTTON_ARCH_NAME "x86_32"
+    #define COTTON_ARCH_NAME       "x86_32"
 
     #define COTTON_ARCH_32_BITS 1
 
@@ -23,12 +22,12 @@
  * __amd64__, __amd64, __x86_64, and __x86_64__ is defined by GCC
  * _M_X64 and _M_AMD64                          is defined by MSVC
  */
-#elif defined(__amd64__) || defined(__amd64) || defined(__x86_64) || defined(__x86_64__) || \
-      defined(_M_X64) || defined(_M_AMD64)
+#elif defined(__amd64__) || defined(__amd64) || defined(__x86_64) || \
+    defined(__x86_64__) || defined(_M_X64) || defined(_M_AMD64)
 
-    #define COTTON_ARCH_X86_64 1
+    #define COTTON_ARCH_X86_64     1
     #define COTTON_ARCH_X86_FAMILY 1
-    #define COTTON_ARCH_NAME "x86_64"
+    #define COTTON_ARCH_NAME       "x86_64"
 
     #define COTTON_ARCH_64_BITS 1
 
@@ -40,10 +39,9 @@
  * __TARGET_ARCH_ARM is defined by RealView
  * _M_ARM            is defined by MSVC
  */
-#elif defined(__arm__) || defined(__arm) || defined(__TARGET_ARCH_ARM) || \
-      defined(_M_ARM)
+#elif defined(__arm__) || defined(__arm) || defined(__TARGET_ARCH_ARM) || defined(_M_ARM)
 
-    #define COTTON_ARCH_ARM32 1
+    #define COTTON_ARCH_ARM32      1
     #define COTTON_ARCH_ARM_FAMILY 1
 
     #define COTTON_ARCH_32_BITS 1
@@ -58,33 +56,32 @@
 
     #elif defined(__ARM_ARCH_4T__) || defined(__TARGET_ARM_4T)
         #define COTTON_ARCH_ARM4T 1
-        #define COTTON_ARCH_NAME "ARM4T"
+        #define COTTON_ARCH_NAME  "ARM4T"
 
-    #elif defined(__ARM_ARCH_5__) || defined(__ARM_ARCH_5E__) || \
-          (_M_ARM == 5)
+    #elif defined(__ARM_ARCH_5__) || defined(__ARM_ARCH_5E__) || (_M_ARM == 5)
 
         #define COTTON_ARCH_ARM5 1
         #define COTTON_ARCH_NAME "ARM5"
 
-    #elif defined(__ARM_ARCH_5T__) || defined(__ARM_ARCH_5TE__) || defined(__ARM_ARCH_5TEJ__)
+    #elif defined(__ARM_ARCH_5T__) || defined(__ARM_ARCH_5TE__) || \
+        defined(__ARM_ARCH_5TEJ__)
         #define COTTON_ARCH_ARM5T 1
-        #define COTTON_ARCH_NAME "ARM5T"
+        #define COTTON_ARCH_NAME  "ARM5T"
 
-    #elif defined(__ARM_ARCH_6__) || defined(__ARM_ARCH_6J__) ||  \
-          defined(__ARM_ARCH_6K__) || defined(__ARM_ARCH_6Z__) || \
-          defined(__ARM_ARCH_6ZK__) ||                            \
-          (_M_ARM == 6)
+    #elif defined(__ARM_ARCH_6__) || defined(__ARM_ARCH_6J__) || \
+        defined(__ARM_ARCH_6K__) || defined(__ARM_ARCH_6Z__) ||  \
+        defined(__ARM_ARCH_6ZK__) || (_M_ARM == 6)
 
         #define COTTON_ARCH_ARM6 1
         #define COTTON_ARCH_NAME "ARM6"
 
     #elif defined(__ARM_ARCH_6T2__)
         #define COTTON_ARCH_ARM6T2 1
-        #define COTTON_ARCH_NAME "ARM6T2"
+        #define COTTON_ARCH_NAME   "ARM6T2"
 
-    #elif defined(__ARM_ARCH_7__) || defined(__ARM_ARCH_7A__) || defined(__ARM_ARCH_7M__) || \
-          defined(__ARM_ARCH_7R__) || defined(__ARM_ARCH_7S__) ||                            \
-          (_M_ARM == 7)
+    #elif defined(__ARM_ARCH_7__) || defined(__ARM_ARCH_7A__) || \
+        defined(__ARM_ARCH_7M__) || defined(__ARM_ARCH_7R__) ||  \
+        defined(__ARM_ARCH_7S__) || (_M_ARM == 7)
 
         #define COTTON_ARCH_ARM7 1
         #define COTTON_ARCH_NAME "ARM7"
@@ -99,7 +96,7 @@
  * _M_ARM64    is defined by MSVC
  */
 #elif defined(__aarch64__) || defined(_M_ARM64)
-    #define COTTON_ARCH_ARM64 1
+    #define COTTON_ARCH_ARM64      1
     #define COTTON_ARCH_ARM_FAMILY 1
 
     #define COTTON_ARCH_64_BITS 1
@@ -112,13 +109,13 @@
  * _M_IA64                       is defined by MSVC
  * __itanium                     is defined by Intel C++
  */
-#elif defined(__ia64__) || defined(_IA64) || defined(__IA64__) || \
-      defined(_M_IA64) || defined(__itanium__)
-    #define COTTON_ARCH_IA64 1
+#elif defined(__ia64__) || defined(_IA64) || defined(__IA64__) || defined(_M_IA64) || \
+    defined(__itanium__)
+    #define COTTON_ARCH_IA64           1
     #define COTTON_ARCH_ITANIUM_FAMILY 1
 
     #define COTTON_ARCH_64_BITS 1
-    #define COTTON_ARCH_NAME "IA-64"
+    #define COTTON_ARCH_NAME    "IA-64"
 
 /*
  * RISC-V Architecture
@@ -131,12 +128,12 @@
         #if (__riscv_len == 32)
             #define COTTON_ARCH_RISCV32 1
             #define COTTON_ARCH_32_BITS 1
-            #define COTTON_ARCH_NAME "RV32"
+            #define COTTON_ARCH_NAME    "RV32"
 
         #elif (__riscv_len == 64)
             #define COTTON_ARCH_RISCV64 1
             #define COTTON_ARCH_64_BITS 1
-            #define COTTON_ARCH_NAME "RV64"
+            #define COTTON_ARCH_NAME    "RV64"
 
         #else
             #error Cannot identify the architecture targeted.
@@ -152,7 +149,7 @@
     #define COTTON_ARCH_POWERPC 1
 
     #define COTTON_ARCH_POWERPC32 1
-    #define COTTON_ARCH_NAME "PowerPC32"
+    #define COTTON_ARCH_NAME      "PowerPC32"
 
     #define COTTON_ARCH_32_BITS 1
 
@@ -174,19 +171,20 @@
  * __mips__ and mips is defined by GCC
  * __MIPS__          is defined by Metroworks
  */
-#elif defined(__mips__) || defined(__MIPS__) || defined(mips) || defined(__mips64) || defined(__mips64__)
+#elif defined(__mips__) || defined(__MIPS__) || defined(mips) || defined(__mips64) || \
+    defined(__mips64__)
     #define COTTON_ARCH_MIPS 1
 
     #if defined(_MIPS_SIM)
         #if defined(__mips64) || defined(__mips64__) || (_MIPS_SIM == _ABI64)
             #define COTTON_ARCH_MIPS64 1
-            #define COTTON_ARCH_NAME "MIPS64"
+            #define COTTON_ARCH_NAME   "MIPS64"
 
             #define COTTON_ARCH_64_BITS 1
 
         #else
             #define COTTON_ARCH_MIPS32 1
-            #define COTTON_ARCH_NAME "MIPS32"
+            #define COTTON_ARCH_NAME   "MIPS32"
 
             #define COTTON_ARCH_32_BITS 1
         #endif
@@ -201,7 +199,7 @@
  * _M_ALPHA  is defined by MSVC
  */
 #elif defined(__alpha__) || defined(__alpha) || defined(_M_ALPHA)
-    #define COTTON_ARCH_ALPHA 1
+    #define COTTON_ARCH_ALPHA   1
     #define COTTON_ARCH_64_BITS 1
 
     #define COTTON_ARCH_NAME "Alpha"

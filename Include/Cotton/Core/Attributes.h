@@ -28,7 +28,8 @@
     #define COTTON_NOINLINE __declspec(noinline)
 #endif
 
-// Specify that the compiler cannot replace anything in the function body with builtins.
+// Specify that the compiler cannot replace anything in the function body with
+// builtins.
 #if COTTON_HAS_GNU_ATTRIBUTE(no_builtin)
     #define COTTON_NO_BUILTIN __attribute__((no_builtin))
 #else

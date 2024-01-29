@@ -2,7 +2,7 @@
 
 //* ARM Compiler
 #if defined(__CC_ARM)
-    #define COTTON_COMPILER_ARM 1
+    #define COTTON_COMPILER_ARM  1
     #define COTTON_COMPILER_NAME "ARM Compiler"
 
     // __ARMCC_VERSION's format is [Mmmppxx],
@@ -15,15 +15,15 @@
 //* Borland C++ Compiler
 #elif defined(__BORLANDC__)
     #define COTTON_COMPILER_BORLAND 1
-    #define COTTON_COMPILER_NAME "Borland C++"
+    #define COTTON_COMPILER_NAME    "Borland C++"
 
 //* Clang Compiler
 // "The meaning of the __clang__ and related macros has changed subtly over the years,
-// from identifying the Clang compiler to identifying compilers that use the Clang infrastructure.
-// For example, IBM XL C/C++ also defines these macros."
+// from identifying the Clang compiler to identifying compilers that use the Clang
+// infrastructure. For example, IBM XL C/C++ also defines these macros."
 #elif defined(__clang__) && !defined(__ibmxl__)
     #define COTTON_COMPILER_CLANG 1
-    #define COTTON_COMPILER_NAME "Clang"
+    #define COTTON_COMPILER_NAME  "Clang"
 
     #define COTTON_CLANG_MAJOR_VERSION __clang_major__
     #define COTTON_CLANG_MINOR_VERSION __clang_minor__
@@ -31,10 +31,11 @@
 
 //* GCC Compiler
 // "Notice that the meaning of the __GNUC__ macro has changed subtly over the years,
-// from identifying the GNU C/C++ compiler to identifying any compiler that implements the GNU compiler extensions.
-// For example, the Intel C++ on Linux also defines these macros from version 8.1"
+// from identifying the GNU C/C++ compiler to identifying any compiler that implements the
+// GNU compiler extensions. For example, the Intel C++ on Linux also defines these macros
+// from version 8.1"
 #elif defined(__GNUC__) && !(defined(__INTEL_COMPILER) || defined(__ICC) || defined(_ICL))
-    #define COTTON_COMPILER_GCC 1
+    #define COTTON_COMPILER_GCC  1
     #define COTTON_COMPILER_NAME "GNU C/C++"
 
     #define COTTON_GCC_MAJOR_VERSION __GNUC__
@@ -43,8 +44,8 @@
 
 //* Green Hills C/C++ Compiler
 #elif defined(__ghs__)
-    #define COTTON_COMPILER_GREENHILLS 1
-    #define COTTON_COMPILER_NAME "Green Hills C/C++"
+    #define COTTON_COMPILER_GREENHILLS      1
+    #define COTTON_COMPILER_NAME            "Green Hills C/C++"
 
     // __GHS_VERSION_NUMBER__ is formatted:
     // [Mmp]
@@ -54,7 +55,7 @@
 
 //* IBM XL C/C++ Compiler
 #elif defined(__ibmxl__) || defined(__xlC__)
-    #define COTTON_COMPILER_XLC 1
+    #define COTTON_COMPILER_XLC  1
     #define COTTON_COMPILER_NAME "IBM XL C/C++"
 
     #define COTTON_XLC_MAJOR_VERSION __ibmxl_version__
@@ -64,7 +65,7 @@
 //* Intel C/C++ Compiler
 #elif defined(__INTEL_COMPILER) || defined(__ICC) || defined(_ICL)
     #define COTTON_COMPILER_INTEL 1
-    #define COTTON_COMPILER_NAME "Intel C/C++"
+    #define COTTON_COMPILER_NAME  "Intel C/C++"
 
     // Intel changed their version format from [M.m.p] to [Y.m.x],
     // shown by Intel C++ 19.1 --> Intel C++ 2021.1.2
