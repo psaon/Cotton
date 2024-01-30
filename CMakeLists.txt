@@ -15,11 +15,28 @@ set(COTTON_HEADERS
     "Include/Cotton/Core/Attributes.h"
     "Include/Cotton/Core/FeatureChecks.h"
     "Include/Cotton/Core/Predefined.h"
+
+    "Include/Cotton/Meta/Details/ArrayTransforms.h"
+    "Include/Cotton/Meta/Details/Conditionals.h"
+    "Include/Cotton/Meta/Details/IsProperty.h"
+    "Include/Cotton/Meta/Details/IsType.h"
+    "Include/Cotton/Meta/Details/IsTypeCategory.h"
+    "Include/Cotton/Meta/Details/PointerTransforms.h"
+    "Include/Cotton/Meta/Details/QualifierTransforms.h"
+    "Include/Cotton/Meta/Details/ReferenceTransforms.h"
+    "Include/Cotton/Meta/Details/SignTransforms.h"
+    "Include/Cotton/Meta/Details/TypeConstant.h"
+
+    "Include/Cotton/Meta/TypeTransforms.h"
 )
 
 set(COTTON_SOURCES
     "Source/Core/PolicyCheck.cpp"
 )
+
+set(COTTON_ROOT_DIR ${CMAKE_CURRENT_SOURCE_DIR})
+set(COTTON_INCLUDE_DIR "${COTTON_ROOT_DIR}/Include")
+set(COTTON_TEST_DIR "${COTTON_ROOT_DIR}/Tests")
 
 option(COTTON_BUILD_SHARED "Build Cotton as a shared library." OFF)
 option(COTTON_BUILD_TESTS "Build Cotton's test executables." OFF)
@@ -67,4 +84,6 @@ if (COTTON_BUILD_TESTS)
 
         add_subdirectory("${COTTON_GTEST_DIR}")
     endif()
+
+    add_subdirectory("Tests")
 endif()
