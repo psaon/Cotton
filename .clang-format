@@ -4,10 +4,9 @@ IndentWidth: 4
 ColumnLimit: 90
 
 UseTab: Never
-AlignTrailingComments: true
 SpacesBeforeTrailingComments: 3
 
-UseCRLF: false
+LineEnding: LF
 BreakBeforeBraces: Allman
 PointerAlignment: Left
 
@@ -16,11 +15,13 @@ AlignAfterOpenBracket: Align        # Wrap and align arguments when function dec
 AlignArrayOfStructures: Left        # Left justify array members.
 AlignConsecutiveMacros: Consecutive # Align macro definitions.
 AlignEscapedNewlines: true          # Align macro newlines ('\')
+
 AlignTrailingComments:
     Kind: Always
     OverEmptyLines: 1
 
 AllowShortFunctionsOnASingleLine: All
+AllowShortIfStatementsOnASingleLine: Never
 AllowShortLambdasOnASingleLine: All
 AllowShortLoopsOnASingleLine: true
 AllowShortCaseLabelsOnASingleLine: true
@@ -53,7 +54,6 @@ IndentWrappedFunctionNames: true
 InsertBraces: false                             # Don't insert braces when not necessary (e.g. one liners)
 InsertNewlineAtEOF: true
 
-LineEnding: LF
 NamespaceIndentation: All                       # Indent nested namespaces.
 PPIndentWidth: 4                                # Preprocessor indent width.
 PackConstructorInitializers: BinPack
