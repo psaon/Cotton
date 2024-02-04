@@ -2,7 +2,7 @@
 
 #include "Cotton/Core/Types.h"
 
-#include "Cotton/Meta/Details/IsProperty.h"
+#include "Cotton/Meta/Details/IsQualifier.h"
 #include "Cotton/Meta/Details/Conditionals.h"
 
 // Hodge-podge

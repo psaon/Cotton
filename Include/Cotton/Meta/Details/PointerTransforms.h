@@ -1,8 +1,5 @@
 #pragma once
 
-#include "Cotton/Meta/Details/Conditionals.h"
-#include "Cotton/Meta/Details/IsTypeCategory.h"
-
 namespace Cotton
 {
     namespace Internal

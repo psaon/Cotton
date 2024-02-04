@@ -17,16 +17,27 @@ set(COTTON_HEADERS
     "Include/Cotton/Core/Predefined.h"
 
     "Include/Cotton/Meta/Details/ArrayTransforms.h"
+    "Include/Cotton/Meta/Details/Comparisons.h"
     "Include/Cotton/Meta/Details/Conditionals.h"
+    "Include/Cotton/Meta/Details/Conversions.h"
+    "Include/Cotton/Meta/Details/IsArithmetic.h"
+    "Include/Cotton/Meta/Details/IsArray.h"
+    "Include/Cotton/Meta/Details/IsCategory.h"
+    "Include/Cotton/Meta/Details/IsFunction.h"
+    "Include/Cotton/Meta/Details/IsPointer.h"
     "Include/Cotton/Meta/Details/IsProperty.h"
+    "Include/Cotton/Meta/Details/IsQualifier.h"
+    "Include/Cotton/Meta/Details/IsReference.h"
+    "Include/Cotton/Meta/Details/IsSign.h"
     "Include/Cotton/Meta/Details/IsType.h"
-    "Include/Cotton/Meta/Details/IsTypeCategory.h"
     "Include/Cotton/Meta/Details/PointerTransforms.h"
     "Include/Cotton/Meta/Details/QualifierTransforms.h"
     "Include/Cotton/Meta/Details/ReferenceTransforms.h"
     "Include/Cotton/Meta/Details/SignTransforms.h"
     "Include/Cotton/Meta/Details/TypeConstant.h"
+    "Include/Cotton/Meta/Details/UnderlyingType.h"
 
+    "Include/Cotton/Meta/TypeTraits.h"
     "Include/Cotton/Meta/TypeTransforms.h"
 )
 
