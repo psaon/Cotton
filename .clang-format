@@ -54,6 +54,7 @@ IndentWrappedFunctionNames: true
 InsertBraces: false                             # Don't insert braces when not necessary (e.g. one liners)
 InsertNewlineAtEOF: true
 
+LambdaBodyIndentation: OuterScope
 NamespaceIndentation: All                       # Indent nested namespaces.
 PPIndentWidth: 4                                # Preprocessor indent width.
 PackConstructorInitializers: BinPack
@@ -61,9 +62,7 @@ PackConstructorInitializers: BinPack
 ReferenceAlignment: Pointer                     # Align reference like pointer.
 ReflowComments: true                            # Reflow comments according to the column limit.
 RemoveBracesLLVM: true                          # Remove braces according to LLVM style.
-
 RequiresExpressionIndentation: OuterScope       # Indent requires expression to outer scope.
-SeparateDefinitionBlocks: Always                # Seperate structs, classes, enums, and functions.
 
 SortIncludes: false
 SortUsingDeclarations: false
