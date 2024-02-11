@@ -1,13 +1,27 @@
 #pragma once
 
+#include "Cotton/Meta/Details/Conditionals.h"
+#include "Cotton/Meta/Details/ReferenceTransforms.h"
+
 namespace Cotton
 {
     namespace Internal
     {
-        template<class T>
-        struct AddPointerHelper
+        template<class T, bool = requires(T* x) { x; }>
+        struct AddPointerTypedef
         {
             using Type = T*;
+        };
+
+        template<class T>
+        struct AddPointerTypedef<T, false>
+        {
+            using Type = T;
+        };
+
+        template<class T>
+        struct AddPointerHelper : AddPointerTypedef<T>
+        {
         };
 
         template<class T>
