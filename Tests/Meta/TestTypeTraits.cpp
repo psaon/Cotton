@@ -1,5 +1,5 @@
-#include <CottonTest.h>
 #include <Cotton/Meta/TypeTraits.h>
+#include <CottonTest.h>
 
 #include <Cotton/Core/Predefined.h>
 #if __has_include(<stdfloat>) && (COTTON_VERSION_CPP > COTTON_VERSION_CPP20)
@@ -24,26 +24,6 @@ namespace CottonTesting
 
     class PolymorphicClass : public AbstractClass
     {
-    };
-
-    class ExampleClass
-    {
-    };
-
-    using EmptyClass = ExampleClass;
-
-    union ExampleUnion
-    {
-    };
-
-    enum ExampleEnum : short
-    {
-        ExampleMember
-    };
-
-    enum class ExampleScopedEnum : long
-    {
-        ExampleMember
     };
 }   // namespace CottonTesting
 

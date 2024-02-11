@@ -7,6 +7,26 @@
 
 namespace CottonTesting
 {
+    class ExampleClass
+    {
+    };
+
+    using EmptyClass = ExampleClass;
+
+    union ExampleUnion
+    {
+    };
+
+    enum ExampleEnum : short
+    {
+        ExampleMember
+    };
+
+    enum class ExampleScopedEnum : long
+    {
+        ExampleMember
+    };
+
     template<class T, class U>
     ::testing::AssertionResult TestTypeEquality(const char* tp1, const char* tp2)
     {
