@@ -175,3 +175,17 @@ TEST(TestTypeTransforms, RemoveAllPointers)
     EXPECT_TYPE_EQ(Cotton::RemoveAllPointers<int*&>, int*&);
     EXPECT_TYPE_EQ(Cotton::RemoveAllPointers<int&>, int&);
 }
+
+TEST(TestTypeTransforms, Decay)
+{
+    // If T is an "array of U" / reference to it, the member typedef if U*.
+    EXPECT_TYPE_EQ(Cotton::Decay<int[3]>, int*);
+    EXPECT_TYPE_EQ(Cotton::Decay<int[]>, int*);
+
+    // If T is a function type F or a reference to one, the member typedef is F*.
+    EXPECT_TYPE_EQ(Cotton::Decay<int(float)>, int (*)(float));
+    EXPECT_TYPE_EQ(Cotton::Decay<int(float)&>, int(float)&);
+
+    // Else, the member typedef is RemoveQualifiers<RemoveReference<T>>.
+    EXPECT_TYPE_EQ(Cotton::Decay<const int&>, int);
+}
