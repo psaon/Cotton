@@ -22,6 +22,7 @@ set(COTTON_HEADERS
     "Include/Cotton/Meta/Details/Conversions.h"
     "Include/Cotton/Meta/Details/IsArithmetic.h"
     "Include/Cotton/Meta/Details/IsArray.h"
+    "Include/Cotton/Meta/Details/IsBaseOf.h"
     "Include/Cotton/Meta/Details/IsCategory.h"
     "Include/Cotton/Meta/Details/IsFunction.h"
     "Include/Cotton/Meta/Details/IsPointer.h"

@@ -7,6 +7,7 @@
 #include "Cotton/Meta/Details/IsArithmetic.h"
 #include "Cotton/Meta/Details/IsArray.h"
 #include "Cotton/Meta/Details/IsAssignable.h"
+#include "Cotton/Meta/Details/IsBaseOf.h"
 #include "Cotton/Meta/Details/IsCategory.h"
 #include "Cotton/Meta/Details/IsConstructible.h"
 #include "Cotton/Meta/Details/IsDestructible.h"

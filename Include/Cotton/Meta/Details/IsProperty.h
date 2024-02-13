@@ -5,6 +5,12 @@
 #include "Cotton/Meta/Details/IsCategory.h"
 #include "Cotton/Meta/Details/IsReference.h"
 
+#include "Cotton/Meta/Details/IsType.h"
+#include "Cotton/Meta/Details/IsArithmetic.h"
+
+#include "Cotton/Meta/Details/IsPointer.h"
+#include "Cotton/Meta/Details/IsArray.h"
+
 #if COTTON_HAS_BUILTIN(__is_empty) && COTTON_HAS_BUILTIN(__is_final) && \
     COTTON_HAS_BUILTIN(__is_abstract)
     #define COTTON_BUILTIN_IS_FINAL(type)    __is_final(type)
@@ -29,6 +35,20 @@ namespace Cotton
 
     template<class T>
     static constexpr bool IsAbstract = COTTON_BUILTIN_IS_ABSTRACT(T);
+
+    template<class T>
+    static constexpr bool IsFundamental = IsArithmetic<T> || IsVoid<T> || IsNullptr<T>;
+
+    template<class T>
+    static constexpr bool IsScalar = IsArithmetic<T> || IsEnum<T> || IsPointer<T> ||
+                                     IsMemberPointer<T> || IsNullptr<T>;
+
+    template<class T>
+    static constexpr bool IsObject =
+        IsScalar<T> || IsArray<T> || IsUnion<T> || IsClass<T>;
+
+    template<class T>
+    static constexpr bool IsCompound = !IsFundamental<T>;
 
     // clang-format off
     //? The clang-format version used (17.0.6) parses this code very strangely..

@@ -440,6 +440,81 @@ TEST(TestTypeTraits, IsFinal)
     EXPECT_FALSE(Cotton::IsFinal<ExampleClass>);
 }
 
+TEST(TestTypeTraits, IsFundamental)
+{
+    EXPECT_TRUE(Cotton::IsFundamental<char>);
+    EXPECT_TRUE(Cotton::IsFundamental<int>);
+    EXPECT_TRUE(Cotton::IsFundamental<float>);
+    EXPECT_TRUE(Cotton::IsFundamental<double>);
+
+    EXPECT_TRUE(Cotton::IsFundamental<void>);
+    EXPECT_TRUE(Cotton::IsFundamental<std::nullptr_t>);
+
+    EXPECT_FALSE(Cotton::IsFundamental<int*>);
+    EXPECT_FALSE(Cotton::IsFundamental<int&>);
+    EXPECT_FALSE(Cotton::IsFundamental<int[3]>);
+    EXPECT_FALSE(Cotton::IsFundamental<int[]>);
+}
+
+TEST(TestTypeTraits, IsScalar)
+{
+    using CottonTesting::ExampleEnum, CottonTesting::ExampleClass;
+
+    EXPECT_TRUE(Cotton::IsScalar<char>);
+    EXPECT_TRUE(Cotton::IsScalar<int>);
+    EXPECT_TRUE(Cotton::IsScalar<float>);
+    EXPECT_TRUE(Cotton::IsScalar<double>);
+
+    EXPECT_TRUE(Cotton::IsScalar<int*>);
+    EXPECT_TRUE(Cotton::IsScalar<float*>);
+    EXPECT_TRUE(Cotton::IsScalar<void*>);
+    EXPECT_TRUE(Cotton::IsScalar<std::nullptr_t>);
+
+    EXPECT_TRUE(Cotton::IsScalar<int ExampleClass::*>);
+    EXPECT_TRUE(Cotton::IsScalar<ExampleEnum>);
+}
+
+TEST(TestTypeTraits, IsObject)
+{
+    using CottonTesting::ExampleEnum, CottonTesting::ExampleClass,
+        CottonTesting::ExampleUnion;
+
+    EXPECT_TRUE(Cotton::IsObject<char>);
+    EXPECT_TRUE(Cotton::IsObject<int>);
+    EXPECT_TRUE(Cotton::IsObject<float>);
+    EXPECT_TRUE(Cotton::IsObject<double>);
+
+    EXPECT_TRUE(Cotton::IsObject<int*>);
+    EXPECT_TRUE(Cotton::IsObject<float*>);
+    EXPECT_TRUE(Cotton::IsObject<void*>);
+    EXPECT_TRUE(Cotton::IsObject<std::nullptr_t>);
+
+    EXPECT_TRUE(Cotton::IsObject<int ExampleClass::*>);
+    EXPECT_TRUE(Cotton::IsObject<ExampleEnum>);
+
+    EXPECT_TRUE(Cotton::IsObject<int[3]>);
+    EXPECT_TRUE(Cotton::IsObject<int[]>);
+
+    EXPECT_TRUE(Cotton::IsObject<ExampleClass>);
+    EXPECT_TRUE(Cotton::IsObject<ExampleUnion>);
+}
+
+TEST(TestTypeTraits, IsCompound)
+{
+    EXPECT_FALSE(Cotton::IsCompound<char>);
+    EXPECT_FALSE(Cotton::IsCompound<int>);
+    EXPECT_FALSE(Cotton::IsCompound<float>);
+    EXPECT_FALSE(Cotton::IsCompound<double>);
+
+    EXPECT_FALSE(Cotton::IsCompound<void>);
+    EXPECT_FALSE(Cotton::IsCompound<std::nullptr_t>);
+
+    EXPECT_TRUE(Cotton::IsCompound<int*>);
+    EXPECT_TRUE(Cotton::IsCompound<int&>);
+    EXPECT_TRUE(Cotton::IsCompound<int[3]>);
+    EXPECT_TRUE(Cotton::IsCompound<int[]>);
+}
+
 TEST(TestTypeTraits, IsSame)
 {
     EXPECT_TRUE((Cotton::IsSame<float, float>));
