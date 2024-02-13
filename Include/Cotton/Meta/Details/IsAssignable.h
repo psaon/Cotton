@@ -3,23 +3,23 @@
 #include "Cotton/Core/FeatureChecks.h"
 
 #if COTTON_HAS_BUILTIN(__is_trivially_assignable)
-    #define COTTON_BUILTIN_IS_TRIVIALLY_ASSIGNABLE(from, to) \
-        __is_trivially_assignable(from, to)
+    #define COTTON_BUILTIN_IS_TRIVIALLY_ASSIGNABLE(to, from) \
+        __is_trivially_assignable(to, from)
 
 #else
     #include <type_traits>
-    #define COTTON_BUILTIN_IS_TRIVIALLY_ASSIGNABLE(from, to) \
-        ::std::is_trivially_assignable_v<from, to>
+    #define COTTON_BUILTIN_IS_TRIVIALLY_ASSIGNABLE(to, from) \
+        ::std::is_trivially_assignable_v<to, from>
 #endif
 
 namespace Cotton
 {
-    template<class From, class To>
-    static constexpr bool IsAssignable = requires(From from, To to) { from = to; };
+    template<class To, class From>
+    static constexpr bool IsAssignable = requires(To to, From from) { to = from; };
 
-    template<class From, class To>
+    template<class To, class From>
     static constexpr bool IsTriviallyAssignable =
-        COTTON_BUILTIN_IS_TRIVIALLY_ASSIGNABLE(From, To);
+        COTTON_BUILTIN_IS_TRIVIALLY_ASSIGNABLE(To, From);
 
     template<class T>
     static constexpr bool IsCopyAssignable = IsAssignable<T&, const T&>;
