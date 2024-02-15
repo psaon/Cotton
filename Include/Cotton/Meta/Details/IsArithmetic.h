@@ -16,14 +16,14 @@ namespace Cotton
 {
     template<class T>
     static constexpr bool IsIntegral =
-        IsAnyOf<T, bool, signed char, signed short, signed int, signed long,
-                signed long long, unsigned char, unsigned short, unsigned int,
-                unsigned long, unsigned long long, char, wchar_t, char8_t, char16_t,
-                char32_t>;
+        IsAnyOf<RemoveQualifiers<T>, bool, signed char, signed short, signed int,
+                signed long, signed long long, unsigned char, unsigned short,
+                unsigned int, unsigned long, unsigned long long, char, wchar_t, char8_t,
+                char16_t, char32_t>;
 
     template<class T>
     static constexpr bool IsFloatingPoint =
-        IsAnyOf<T, float, double, long double
+        IsAnyOf<RemoveQualifiers<T>, float, double, long double
 
 #if COTTON_STD_HAS_FIXED_WIDTH_FLOAT_
                 ,
