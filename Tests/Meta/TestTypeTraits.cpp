@@ -251,6 +251,15 @@ TEST(TestTypeTraits, IsIntegral)
 #endif
 }
 
+TEST(TestTypeTraits, IsCharacter)
+{
+    EXPECT_TRUE(Cotton::IsCharacter<const char>);
+    EXPECT_TRUE(Cotton::IsCharacter<const wchar_t>);
+    EXPECT_TRUE(Cotton::IsCharacter<const char8_t>);
+    EXPECT_TRUE(Cotton::IsCharacter<const char16_t>);
+    EXPECT_TRUE(Cotton::IsCharacter<const char32_t>);
+}
+
 TEST(TestTypeTraits, IsFloatingPoint)
 {
     EXPECT_TRUE(Cotton::IsFloatingPoint<const float>);

@@ -22,6 +22,10 @@ namespace Cotton
                 char16_t, char32_t>;
 
     template<class T>
+    static constexpr bool IsCharacter =
+        IsAnyOf<RemoveQualifiers<T>, char, wchar_t, char8_t, char16_t, char32_t>;
+
+    template<class T>
     static constexpr bool IsFloatingPoint =
         IsAnyOf<RemoveQualifiers<T>, float, double, long double
 
