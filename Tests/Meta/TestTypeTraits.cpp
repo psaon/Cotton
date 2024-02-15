@@ -219,144 +219,144 @@ TEST(TestTypeTraits, IsMemberObjectPointer)
 
 TEST(TestTypeTraits, IsIntegral)
 {
-    EXPECT_TRUE(Cotton::IsIntegral<bool>);
-    EXPECT_TRUE(Cotton::IsIntegral<signed char>);
-    EXPECT_TRUE(Cotton::IsIntegral<signed short>);
-    EXPECT_TRUE(Cotton::IsIntegral<signed int>);
-    EXPECT_TRUE(Cotton::IsIntegral<signed long>);
-    EXPECT_TRUE(Cotton::IsIntegral<signed long long>);
+    EXPECT_TRUE(Cotton::IsIntegral<const bool>);
+    EXPECT_TRUE(Cotton::IsIntegral<const signed char>);
+    EXPECT_TRUE(Cotton::IsIntegral<const signed short>);
+    EXPECT_TRUE(Cotton::IsIntegral<const signed int>);
+    EXPECT_TRUE(Cotton::IsIntegral<const signed long>);
+    EXPECT_TRUE(Cotton::IsIntegral<const signed long long>);
 
-    EXPECT_TRUE(Cotton::IsIntegral<unsigned char>);
-    EXPECT_TRUE(Cotton::IsIntegral<unsigned short>);
-    EXPECT_TRUE(Cotton::IsIntegral<unsigned int>);
-    EXPECT_TRUE(Cotton::IsIntegral<unsigned long>);
-    EXPECT_TRUE(Cotton::IsIntegral<unsigned long long>);
+    EXPECT_TRUE(Cotton::IsIntegral<const unsigned char>);
+    EXPECT_TRUE(Cotton::IsIntegral<const unsigned short>);
+    EXPECT_TRUE(Cotton::IsIntegral<const unsigned int>);
+    EXPECT_TRUE(Cotton::IsIntegral<const unsigned long>);
+    EXPECT_TRUE(Cotton::IsIntegral<const unsigned long long>);
 
-    EXPECT_TRUE(Cotton::IsIntegral<char>);
-    EXPECT_TRUE(Cotton::IsIntegral<char8_t>);
-    EXPECT_TRUE(Cotton::IsIntegral<char16_t>);
-    EXPECT_TRUE(Cotton::IsIntegral<char32_t>);
-    EXPECT_TRUE(Cotton::IsIntegral<wchar_t>);
+    EXPECT_TRUE(Cotton::IsIntegral<const char>);
+    EXPECT_TRUE(Cotton::IsIntegral<const char8_t>);
+    EXPECT_TRUE(Cotton::IsIntegral<const char16_t>);
+    EXPECT_TRUE(Cotton::IsIntegral<const char32_t>);
+    EXPECT_TRUE(Cotton::IsIntegral<const wchar_t>);
 
-    EXPECT_FALSE(Cotton::IsIntegral<float>);
-    EXPECT_FALSE(Cotton::IsIntegral<double>);
-    EXPECT_FALSE(Cotton::IsIntegral<long double>);
+    EXPECT_FALSE(Cotton::IsIntegral<const float>);
+    EXPECT_FALSE(Cotton::IsIntegral<const double>);
+    EXPECT_FALSE(Cotton::IsIntegral<const long double>);
 
 #if COTTON_TEST_HAS_STDFLOAT
-    EXPECT_FALSE(Cotton::IsIntegral<std::float16_t>);
-    EXPECT_FALSE(Cotton::IsIntegral<std::float32_t>);
-    EXPECT_FALSE(Cotton::IsIntegral<std::float64_t>);
-    EXPECT_FALSE(Cotton::IsIntegral<std::float128_t>);
-    EXPECT_FALSE(Cotton::IsIntegral<std::bfloat16_t>);
+    EXPECT_FALSE(Cotton::IsIntegral<const std::float16_t>);
+    EXPECT_FALSE(Cotton::IsIntegral<const std::float32_t>);
+    EXPECT_FALSE(Cotton::IsIntegral<const std::float64_t>);
+    EXPECT_FALSE(Cotton::IsIntegral<const std::float128_t>);
+    EXPECT_FALSE(Cotton::IsIntegral<const std::bfloat16_t>);
 #endif
 }
 
 TEST(TestTypeTraits, IsFloatingPoint)
 {
-    EXPECT_TRUE(Cotton::IsFloatingPoint<float>);
-    EXPECT_TRUE(Cotton::IsFloatingPoint<double>);
-    EXPECT_TRUE(Cotton::IsFloatingPoint<long double>);
+    EXPECT_TRUE(Cotton::IsFloatingPoint<const float>);
+    EXPECT_TRUE(Cotton::IsFloatingPoint<const double>);
+    EXPECT_TRUE(Cotton::IsFloatingPoint<const long double>);
 
 #if COTTON_TEST_HAS_STDFLOAT
-    EXPECT_TRUE(Cotton::IsFloatingPoint<std::float16_t>);
-    EXPECT_TRUE(Cotton::IsFloatingPoint<std::float32_t>);
-    EXPECT_TRUE(Cotton::IsFloatingPoint<std::float64_t>);
-    EXPECT_TRUE(Cotton::IsFloatingPoint<std::float128_t>);
-    EXPECT_TRUE(Cotton::IsFloatingPoint<std::bfloat16_t>);
+    EXPECT_TRUE(Cotton::IsFloatingPoint<const std::float16_t>);
+    EXPECT_TRUE(Cotton::IsFloatingPoint<const std::float32_t>);
+    EXPECT_TRUE(Cotton::IsFloatingPoint<const std::float64_t>);
+    EXPECT_TRUE(Cotton::IsFloatingPoint<const std::float128_t>);
+    EXPECT_TRUE(Cotton::IsFloatingPoint<const std::bfloat16_t>);
 #endif
 
-    EXPECT_FALSE(Cotton::IsFloatingPoint<bool>);
-    EXPECT_FALSE(Cotton::IsFloatingPoint<signed char>);
-    EXPECT_FALSE(Cotton::IsFloatingPoint<signed short>);
-    EXPECT_FALSE(Cotton::IsFloatingPoint<signed int>);
-    EXPECT_FALSE(Cotton::IsFloatingPoint<signed long>);
-    EXPECT_FALSE(Cotton::IsFloatingPoint<signed long long>);
+    EXPECT_FALSE(Cotton::IsFloatingPoint<const bool>);
+    EXPECT_FALSE(Cotton::IsFloatingPoint<const signed char>);
+    EXPECT_FALSE(Cotton::IsFloatingPoint<const signed short>);
+    EXPECT_FALSE(Cotton::IsFloatingPoint<const signed int>);
+    EXPECT_FALSE(Cotton::IsFloatingPoint<const signed long>);
+    EXPECT_FALSE(Cotton::IsFloatingPoint<const signed long long>);
 
-    EXPECT_FALSE(Cotton::IsFloatingPoint<unsigned char>);
-    EXPECT_FALSE(Cotton::IsFloatingPoint<unsigned short>);
-    EXPECT_FALSE(Cotton::IsFloatingPoint<unsigned int>);
-    EXPECT_FALSE(Cotton::IsFloatingPoint<unsigned long>);
-    EXPECT_FALSE(Cotton::IsFloatingPoint<unsigned long long>);
+    EXPECT_FALSE(Cotton::IsFloatingPoint<const unsigned char>);
+    EXPECT_FALSE(Cotton::IsFloatingPoint<const unsigned short>);
+    EXPECT_FALSE(Cotton::IsFloatingPoint<const unsigned int>);
+    EXPECT_FALSE(Cotton::IsFloatingPoint<const unsigned long>);
+    EXPECT_FALSE(Cotton::IsFloatingPoint<const unsigned long long>);
 
-    EXPECT_FALSE(Cotton::IsFloatingPoint<char>);
-    EXPECT_FALSE(Cotton::IsFloatingPoint<char8_t>);
-    EXPECT_FALSE(Cotton::IsFloatingPoint<char16_t>);
-    EXPECT_FALSE(Cotton::IsFloatingPoint<char32_t>);
-    EXPECT_FALSE(Cotton::IsFloatingPoint<wchar_t>);
+    EXPECT_FALSE(Cotton::IsFloatingPoint<const char>);
+    EXPECT_FALSE(Cotton::IsFloatingPoint<const char8_t>);
+    EXPECT_FALSE(Cotton::IsFloatingPoint<const char16_t>);
+    EXPECT_FALSE(Cotton::IsFloatingPoint<const char32_t>);
+    EXPECT_FALSE(Cotton::IsFloatingPoint<const wchar_t>);
 }
 
 TEST(TestTypeTraits, IsArithmetic)
 {
-    EXPECT_TRUE(Cotton::IsArithmetic<float>);
-    EXPECT_TRUE(Cotton::IsArithmetic<double>);
-    EXPECT_TRUE(Cotton::IsArithmetic<long double>);
+    EXPECT_TRUE(Cotton::IsArithmetic<const float>);
+    EXPECT_TRUE(Cotton::IsArithmetic<const double>);
+    EXPECT_TRUE(Cotton::IsArithmetic<const long double>);
 
 #if COTTON_TEST_HAS_STDFLOAT
-    EXPECT_TRUE(Cotton::IsArithmetic<std::float16_t>);
-    EXPECT_TRUE(Cotton::IsArithmetic<std::float32_t>);
-    EXPECT_TRUE(Cotton::IsArithmetic<std::float64_t>);
-    EXPECT_TRUE(Cotton::IsArithmetic<std::float128_t>);
-    EXPECT_TRUE(Cotton::IsArithmetic<std::bfloat16_t>);
+    EXPECT_TRUE(Cotton::IsArithmetic<const std::float16_t>);
+    EXPECT_TRUE(Cotton::IsArithmetic<const std::float32_t>);
+    EXPECT_TRUE(Cotton::IsArithmetic<const std::float64_t>);
+    EXPECT_TRUE(Cotton::IsArithmetic<const std::float128_t>);
+    EXPECT_TRUE(Cotton::IsArithmetic<const std::bfloat16_t>);
 #endif
 
-    EXPECT_TRUE(Cotton::IsArithmetic<bool>);
-    EXPECT_TRUE(Cotton::IsArithmetic<signed char>);
-    EXPECT_TRUE(Cotton::IsArithmetic<signed short>);
-    EXPECT_TRUE(Cotton::IsArithmetic<signed int>);
-    EXPECT_TRUE(Cotton::IsArithmetic<signed long>);
-    EXPECT_TRUE(Cotton::IsArithmetic<signed long long>);
+    EXPECT_TRUE(Cotton::IsArithmetic<const bool>);
+    EXPECT_TRUE(Cotton::IsArithmetic<const signed char>);
+    EXPECT_TRUE(Cotton::IsArithmetic<const signed short>);
+    EXPECT_TRUE(Cotton::IsArithmetic<const signed int>);
+    EXPECT_TRUE(Cotton::IsArithmetic<const signed long>);
+    EXPECT_TRUE(Cotton::IsArithmetic<const signed long long>);
 
-    EXPECT_TRUE(Cotton::IsArithmetic<unsigned char>);
-    EXPECT_TRUE(Cotton::IsArithmetic<unsigned short>);
-    EXPECT_TRUE(Cotton::IsArithmetic<unsigned int>);
-    EXPECT_TRUE(Cotton::IsArithmetic<unsigned long>);
-    EXPECT_TRUE(Cotton::IsArithmetic<unsigned long long>);
+    EXPECT_TRUE(Cotton::IsArithmetic<const unsigned char>);
+    EXPECT_TRUE(Cotton::IsArithmetic<const unsigned short>);
+    EXPECT_TRUE(Cotton::IsArithmetic<const unsigned int>);
+    EXPECT_TRUE(Cotton::IsArithmetic<const unsigned long>);
+    EXPECT_TRUE(Cotton::IsArithmetic<const unsigned long long>);
 
-    EXPECT_TRUE(Cotton::IsArithmetic<char>);
-    EXPECT_TRUE(Cotton::IsArithmetic<char8_t>);
-    EXPECT_TRUE(Cotton::IsArithmetic<char16_t>);
-    EXPECT_TRUE(Cotton::IsArithmetic<char32_t>);
-    EXPECT_TRUE(Cotton::IsArithmetic<wchar_t>);
+    EXPECT_TRUE(Cotton::IsArithmetic<const char>);
+    EXPECT_TRUE(Cotton::IsArithmetic<const char8_t>);
+    EXPECT_TRUE(Cotton::IsArithmetic<const char16_t>);
+    EXPECT_TRUE(Cotton::IsArithmetic<const char32_t>);
+    EXPECT_TRUE(Cotton::IsArithmetic<const wchar_t>);
 }
 
 TEST(TestTypeTraits, IsSigned)
 {
-    EXPECT_TRUE(Cotton::IsSigned<signed char>);
-    EXPECT_TRUE(Cotton::IsSigned<signed short>);
-    EXPECT_TRUE(Cotton::IsSigned<signed int>);
-    EXPECT_TRUE(Cotton::IsSigned<signed long>);
-    EXPECT_TRUE(Cotton::IsSigned<signed long long>);
+    EXPECT_TRUE(Cotton::IsSigned<const signed char>);
+    EXPECT_TRUE(Cotton::IsSigned<const signed short>);
+    EXPECT_TRUE(Cotton::IsSigned<const signed int>);
+    EXPECT_TRUE(Cotton::IsSigned<const signed long>);
+    EXPECT_TRUE(Cotton::IsSigned<const signed long long>);
 
-    EXPECT_FALSE(Cotton::IsSigned<bool>);
-    EXPECT_FALSE(Cotton::IsSigned<unsigned char>);
-    EXPECT_FALSE(Cotton::IsSigned<unsigned short>);
-    EXPECT_FALSE(Cotton::IsSigned<unsigned int>);
-    EXPECT_FALSE(Cotton::IsSigned<unsigned long>);
-    EXPECT_FALSE(Cotton::IsSigned<unsigned long long>);
+    EXPECT_FALSE(Cotton::IsSigned<const bool>);
+    EXPECT_FALSE(Cotton::IsSigned<const unsigned char>);
+    EXPECT_FALSE(Cotton::IsSigned<const unsigned short>);
+    EXPECT_FALSE(Cotton::IsSigned<const unsigned int>);
+    EXPECT_FALSE(Cotton::IsSigned<const unsigned long>);
+    EXPECT_FALSE(Cotton::IsSigned<const unsigned long long>);
 
-    EXPECT_FALSE(Cotton::IsSigned<char8_t>);
-    EXPECT_FALSE(Cotton::IsSigned<char16_t>);
-    EXPECT_FALSE(Cotton::IsSigned<char32_t>);
+    EXPECT_FALSE(Cotton::IsSigned<const char8_t>);
+    EXPECT_FALSE(Cotton::IsSigned<const char16_t>);
+    EXPECT_FALSE(Cotton::IsSigned<const char32_t>);
 }
 
 TEST(TestTypeTraits, IsUnsigned)
 {
-    EXPECT_TRUE(Cotton::IsUnsigned<bool>);
-    EXPECT_TRUE(Cotton::IsUnsigned<unsigned char>);
-    EXPECT_TRUE(Cotton::IsUnsigned<unsigned short>);
-    EXPECT_TRUE(Cotton::IsUnsigned<unsigned int>);
-    EXPECT_TRUE(Cotton::IsUnsigned<unsigned long>);
-    EXPECT_TRUE(Cotton::IsUnsigned<unsigned long long>);
+    EXPECT_TRUE(Cotton::IsUnsigned<const bool>);
+    EXPECT_TRUE(Cotton::IsUnsigned<const unsigned char>);
+    EXPECT_TRUE(Cotton::IsUnsigned<const unsigned short>);
+    EXPECT_TRUE(Cotton::IsUnsigned<const unsigned int>);
+    EXPECT_TRUE(Cotton::IsUnsigned<const unsigned long>);
+    EXPECT_TRUE(Cotton::IsUnsigned<const unsigned long long>);
 
-    EXPECT_TRUE(Cotton::IsUnsigned<char8_t>);
-    EXPECT_TRUE(Cotton::IsUnsigned<char16_t>);
-    EXPECT_TRUE(Cotton::IsUnsigned<char32_t>);
+    EXPECT_TRUE(Cotton::IsUnsigned<const char8_t>);
+    EXPECT_TRUE(Cotton::IsUnsigned<const char16_t>);
+    EXPECT_TRUE(Cotton::IsUnsigned<const char32_t>);
 
-    EXPECT_FALSE(Cotton::IsUnsigned<signed char>);
-    EXPECT_FALSE(Cotton::IsUnsigned<signed short>);
-    EXPECT_FALSE(Cotton::IsUnsigned<signed int>);
-    EXPECT_FALSE(Cotton::IsUnsigned<signed long>);
-    EXPECT_FALSE(Cotton::IsUnsigned<signed long long>);
+    EXPECT_FALSE(Cotton::IsUnsigned<const signed char>);
+    EXPECT_FALSE(Cotton::IsUnsigned<const signed short>);
+    EXPECT_FALSE(Cotton::IsUnsigned<const signed int>);
+    EXPECT_FALSE(Cotton::IsUnsigned<const signed long>);
+    EXPECT_FALSE(Cotton::IsUnsigned<const signed long long>);
 }
 
 TEST(TestTypeTraits, IsConst)
@@ -404,6 +404,7 @@ TEST(TestTypeTraits, IsEmpty)
     using CottonTesting::EmptyClass, CottonTesting::ExampleEnum;
 
     EXPECT_TRUE(Cotton::IsEmpty<EmptyClass>);
+    EXPECT_TRUE(Cotton::IsEmpty<const EmptyClass>);
 
     EXPECT_FALSE(Cotton::IsEmpty<int>);
     EXPECT_FALSE(Cotton::IsEmpty<float>);
@@ -415,6 +416,7 @@ TEST(TestTypeTraits, IsPolymorphic)
     using CottonTesting::PolymorphicClass, CottonTesting::ExampleClass;
 
     EXPECT_TRUE(Cotton::IsPolymorphic<PolymorphicClass>);
+    EXPECT_TRUE(Cotton::IsPolymorphic<const PolymorphicClass>);
 
     EXPECT_FALSE(Cotton::IsPolymorphic<int>);
     EXPECT_FALSE(Cotton::IsPolymorphic<float>);
@@ -426,6 +428,7 @@ TEST(TestTypeTraits, IsAbstract)
     using CottonTesting::AbstractClass, CottonTesting::ExampleClass;
 
     EXPECT_TRUE(Cotton::IsAbstract<AbstractClass>);
+    EXPECT_TRUE(Cotton::IsAbstract<const AbstractClass>);
 
     EXPECT_FALSE(Cotton::IsAbstract<int>);
     EXPECT_FALSE(Cotton::IsAbstract<float>);
@@ -437,41 +440,43 @@ TEST(TestTypeTraits, IsFinal)
     using CottonTesting::FinalClass, CottonTesting::ExampleClass;
 
     EXPECT_TRUE(Cotton::IsFinal<FinalClass>);
+    EXPECT_TRUE(Cotton::IsFinal<const FinalClass>);
+
     EXPECT_FALSE(Cotton::IsFinal<ExampleClass>);
 }
 
 TEST(TestTypeTraits, IsFundamental)
 {
-    EXPECT_TRUE(Cotton::IsFundamental<char>);
-    EXPECT_TRUE(Cotton::IsFundamental<int>);
-    EXPECT_TRUE(Cotton::IsFundamental<float>);
-    EXPECT_TRUE(Cotton::IsFundamental<double>);
+    EXPECT_TRUE(Cotton::IsFundamental<const char>);
+    EXPECT_TRUE(Cotton::IsFundamental<const int>);
+    EXPECT_TRUE(Cotton::IsFundamental<const float>);
+    EXPECT_TRUE(Cotton::IsFundamental<const double>);
 
-    EXPECT_TRUE(Cotton::IsFundamental<void>);
-    EXPECT_TRUE(Cotton::IsFundamental<std::nullptr_t>);
+    EXPECT_TRUE(Cotton::IsFundamental<const void>);
+    EXPECT_TRUE(Cotton::IsFundamental<const std::nullptr_t>);
 
-    EXPECT_FALSE(Cotton::IsFundamental<int*>);
-    EXPECT_FALSE(Cotton::IsFundamental<int&>);
-    EXPECT_FALSE(Cotton::IsFundamental<int[3]>);
-    EXPECT_FALSE(Cotton::IsFundamental<int[]>);
+    EXPECT_FALSE(Cotton::IsFundamental<const int* const>);
+    EXPECT_FALSE(Cotton::IsFundamental<const int&>);
+    EXPECT_FALSE(Cotton::IsFundamental<const int[3]>);
+    EXPECT_FALSE(Cotton::IsFundamental<const int[]>);
 }
 
 TEST(TestTypeTraits, IsScalar)
 {
     using CottonTesting::ExampleEnum, CottonTesting::ExampleClass;
 
-    EXPECT_TRUE(Cotton::IsScalar<char>);
-    EXPECT_TRUE(Cotton::IsScalar<int>);
-    EXPECT_TRUE(Cotton::IsScalar<float>);
-    EXPECT_TRUE(Cotton::IsScalar<double>);
+    EXPECT_TRUE(Cotton::IsScalar<const char>);
+    EXPECT_TRUE(Cotton::IsScalar<const int>);
+    EXPECT_TRUE(Cotton::IsScalar<const float>);
+    EXPECT_TRUE(Cotton::IsScalar<const double>);
 
-    EXPECT_TRUE(Cotton::IsScalar<int*>);
-    EXPECT_TRUE(Cotton::IsScalar<float*>);
-    EXPECT_TRUE(Cotton::IsScalar<void*>);
-    EXPECT_TRUE(Cotton::IsScalar<std::nullptr_t>);
+    EXPECT_TRUE(Cotton::IsScalar<const int* const>);
+    EXPECT_TRUE(Cotton::IsScalar<const float* const>);
+    EXPECT_TRUE(Cotton::IsScalar<const void* const>);
+    EXPECT_TRUE(Cotton::IsScalar<const std::nullptr_t>);
 
-    EXPECT_TRUE(Cotton::IsScalar<int ExampleClass::*>);
-    EXPECT_TRUE(Cotton::IsScalar<ExampleEnum>);
+    EXPECT_TRUE(Cotton::IsScalar<int ExampleClass::*const>);
+    EXPECT_TRUE(Cotton::IsScalar<const ExampleEnum>);
 }
 
 TEST(TestTypeTraits, IsObject)
@@ -479,40 +484,40 @@ TEST(TestTypeTraits, IsObject)
     using CottonTesting::ExampleEnum, CottonTesting::ExampleClass,
         CottonTesting::ExampleUnion;
 
-    EXPECT_TRUE(Cotton::IsObject<char>);
-    EXPECT_TRUE(Cotton::IsObject<int>);
-    EXPECT_TRUE(Cotton::IsObject<float>);
-    EXPECT_TRUE(Cotton::IsObject<double>);
+    EXPECT_TRUE(Cotton::IsObject<const char>);
+    EXPECT_TRUE(Cotton::IsObject<const int>);
+    EXPECT_TRUE(Cotton::IsObject<const float>);
+    EXPECT_TRUE(Cotton::IsObject<const double>);
 
-    EXPECT_TRUE(Cotton::IsObject<int*>);
-    EXPECT_TRUE(Cotton::IsObject<float*>);
-    EXPECT_TRUE(Cotton::IsObject<void*>);
-    EXPECT_TRUE(Cotton::IsObject<std::nullptr_t>);
+    EXPECT_TRUE(Cotton::IsObject<const int* const>);
+    EXPECT_TRUE(Cotton::IsObject<const float* const>);
+    EXPECT_TRUE(Cotton::IsObject<const void* const>);
+    EXPECT_TRUE(Cotton::IsObject<const std::nullptr_t>);
 
-    EXPECT_TRUE(Cotton::IsObject<int ExampleClass::*>);
-    EXPECT_TRUE(Cotton::IsObject<ExampleEnum>);
+    EXPECT_TRUE(Cotton::IsObject<int ExampleClass::*const>);
+    EXPECT_TRUE(Cotton::IsObject<const ExampleEnum>);
 
-    EXPECT_TRUE(Cotton::IsObject<int[3]>);
-    EXPECT_TRUE(Cotton::IsObject<int[]>);
+    EXPECT_TRUE(Cotton::IsObject<const int[3]>);
+    EXPECT_TRUE(Cotton::IsObject<const int[]>);
 
-    EXPECT_TRUE(Cotton::IsObject<ExampleClass>);
-    EXPECT_TRUE(Cotton::IsObject<ExampleUnion>);
+    EXPECT_TRUE(Cotton::IsObject<const ExampleClass>);
+    EXPECT_TRUE(Cotton::IsObject<const ExampleUnion>);
 }
 
 TEST(TestTypeTraits, IsCompound)
 {
-    EXPECT_FALSE(Cotton::IsCompound<char>);
-    EXPECT_FALSE(Cotton::IsCompound<int>);
-    EXPECT_FALSE(Cotton::IsCompound<float>);
-    EXPECT_FALSE(Cotton::IsCompound<double>);
+    EXPECT_FALSE(Cotton::IsCompound<const char>);
+    EXPECT_FALSE(Cotton::IsCompound<const int>);
+    EXPECT_FALSE(Cotton::IsCompound<const float>);
+    EXPECT_FALSE(Cotton::IsCompound<const double>);
 
-    EXPECT_FALSE(Cotton::IsCompound<void>);
-    EXPECT_FALSE(Cotton::IsCompound<std::nullptr_t>);
+    EXPECT_FALSE(Cotton::IsCompound<const void>);
+    EXPECT_FALSE(Cotton::IsCompound<const std::nullptr_t>);
 
-    EXPECT_TRUE(Cotton::IsCompound<int*>);
-    EXPECT_TRUE(Cotton::IsCompound<int&>);
-    EXPECT_TRUE(Cotton::IsCompound<int[3]>);
-    EXPECT_TRUE(Cotton::IsCompound<int[]>);
+    EXPECT_TRUE(Cotton::IsCompound<const int* const>);
+    EXPECT_TRUE(Cotton::IsCompound<const int&>);
+    EXPECT_TRUE(Cotton::IsCompound<const int[3]>);
+    EXPECT_TRUE(Cotton::IsCompound<const int[]>);
 }
 
 TEST(TestTypeTraits, IsSame)
