@@ -12,6 +12,11 @@ link_libraries(
     GTest::gmock
 )
 
+project(TestIterator)
+add_executable(TestIterator
+    "Iterator/TestIterConcepts.cpp"
+)
+
 project(TestMeta)
 add_executable(TestMeta
     "Meta/TestConcepts.cpp"
