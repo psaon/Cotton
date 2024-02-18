@@ -43,6 +43,7 @@ set(COTTON_HEADERS
     "Include/Cotton/Meta/Details/TypeConstant.h"
     "Include/Cotton/Meta/Details/UnderlyingType.h"
 
+    "Include/Cotton/Meta/Concepts.h"
     "Include/Cotton/Meta/TypeTraits.h"
     "Include/Cotton/Meta/TypeTransforms.h"
 )

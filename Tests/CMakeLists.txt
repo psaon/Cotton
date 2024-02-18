@@ -14,6 +14,7 @@ link_libraries(
 
 project(TestMeta)
 add_executable(TestMeta
+    "Meta/TestConcepts.cpp"
     "Meta/TestExTypeOps.cpp"
     "Meta/TestTypeOps.cpp"
     "Meta/TestTypeTraits.cpp"
