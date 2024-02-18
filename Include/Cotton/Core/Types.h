@@ -116,6 +116,8 @@ namespace Cotton
     using Usize = ::std::size_t;
     using Index = ::std::ptrdiff_t;
 
+    using Ptrdiff = ::std::ptrdiff_t;
+
 #if SIZE_MAX == 0xffffffffffffffff
     using Ssize = Int64;
 #elif SIZE_MAX == 0xffffffff
