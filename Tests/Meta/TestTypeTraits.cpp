@@ -575,3 +575,19 @@ TEST(TestTypeTraits, UnderlyingType)
     EXPECT_TYPE_EQ(Cotton::UnderlyingType<ExampleEnum>, short);
     EXPECT_TYPE_EQ(Cotton::UnderlyingType<ExampleScopedEnum>, long);
 }
+
+TEST(TestTypeTraits, SignedIntType)
+{
+    EXPECT_TYPE_EQ(Cotton::SignedIntType<1>, Cotton::Int8);
+    EXPECT_TYPE_EQ(Cotton::SignedIntType<2>, Cotton::Int16);
+    EXPECT_TYPE_EQ(Cotton::SignedIntType<4>, Cotton::Int32);
+    EXPECT_TYPE_EQ(Cotton::SignedIntType<8>, Cotton::Int64);
+}
+
+TEST(TestTypeTraits, UnsignedIntType)
+{
+    EXPECT_TYPE_EQ(Cotton::UnsignedIntType<1>, Cotton::Uint8);
+    EXPECT_TYPE_EQ(Cotton::UnsignedIntType<2>, Cotton::Uint16);
+    EXPECT_TYPE_EQ(Cotton::UnsignedIntType<4>, Cotton::Uint32);
+    EXPECT_TYPE_EQ(Cotton::UnsignedIntType<8>, Cotton::Uint64);
+}

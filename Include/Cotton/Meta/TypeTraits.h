@@ -4,6 +4,7 @@
 #include "Cotton/Meta/Details/Conditionals.h"
 #include "Cotton/Meta/Details/Conversions.h"
 #include "Cotton/Meta/Details/HasOperator.h"
+#include "Cotton/Meta/Details/IntTypes.h"
 #include "Cotton/Meta/Details/IsArithmetic.h"
 #include "Cotton/Meta/Details/IsArray.h"
 #include "Cotton/Meta/Details/IsAssignable.h"
