@@ -95,48 +95,52 @@ TEST(TestTypeTransforms, RemoveReference)
 
 TEST(TestTypeTransforms, MakeSigned)
 {
-    EXPECT_TYPE_EQ(Cotton::MakeSigned<signed char>, signed char);
-    EXPECT_TYPE_EQ(Cotton::MakeSigned<short>, signed short);
-    EXPECT_TYPE_EQ(Cotton::MakeSigned<int>, signed int);
-    EXPECT_TYPE_EQ(Cotton::MakeSigned<long>, signed long);
+    EXPECT_TYPE_EQ(Cotton::MakeSigned<volatile signed char>, volatile signed char);
+    EXPECT_TYPE_EQ(Cotton::MakeSigned<const short>, const signed short);
+    EXPECT_TYPE_EQ(Cotton::MakeSigned<const int>, const signed int);
+    EXPECT_TYPE_EQ(Cotton::MakeSigned<const long>, const signed long);
     EXPECT_TYPE_EQ(Cotton::MakeSigned<long long>, signed long long);
 
-    EXPECT_TYPE_EQ(Cotton::MakeSigned<unsigned char>, signed char);
-    EXPECT_TYPE_EQ(Cotton::MakeSigned<unsigned short>, signed short);
-    EXPECT_TYPE_EQ(Cotton::MakeSigned<unsigned int>, signed int);
-    EXPECT_TYPE_EQ(Cotton::MakeSigned<unsigned long>, signed long);
+    EXPECT_TYPE_EQ(Cotton::MakeSigned<const volatile unsigned char>,
+                   const volatile signed char);
+    EXPECT_TYPE_EQ(Cotton::MakeSigned<volatile unsigned short>, volatile signed short);
+    EXPECT_TYPE_EQ(Cotton::MakeSigned<volatile unsigned int>, volatile signed int);
+    EXPECT_TYPE_EQ(Cotton::MakeSigned<volatile unsigned long>, volatile signed long);
     EXPECT_TYPE_EQ(Cotton::MakeSigned<unsigned long long>, signed long long);
 
-    EXPECT_TYPE_EQ(Cotton::MakeSigned<char>, Cotton::Int8);
-    EXPECT_TYPE_EQ(Cotton::MakeSigned<char8_t>, Cotton::Int8);
-    EXPECT_TYPE_EQ(Cotton::MakeSigned<char16_t>, Cotton::Int16);
+    EXPECT_TYPE_EQ(Cotton::MakeSigned<const char>, const Cotton::Int8);
+    EXPECT_TYPE_EQ(Cotton::MakeSigned<const char8_t>, const Cotton::Int8);
+    EXPECT_TYPE_EQ(Cotton::MakeSigned<const volatile char16_t>,
+                   const volatile Cotton::Int16);
     EXPECT_TYPE_EQ(Cotton::MakeSigned<char32_t>, Cotton::Int32);
 
     EXPECT_EQ(sizeof(Cotton::MakeSigned<wchar_t>), sizeof(wchar_t));
     EXPECT_TRUE(std::is_signed_v<Cotton::MakeSigned<wchar_t>>);
+    EXPECT_TRUE(std::is_const_v<Cotton::MakeSigned<const wchar_t>>);
 }
 
 TEST(TestTypeTransforms, MakeUnsigned)
 {
-    EXPECT_TYPE_EQ(Cotton::MakeUnsigned<signed char>, unsigned char);
-    EXPECT_TYPE_EQ(Cotton::MakeUnsigned<short>, unsigned short);
-    EXPECT_TYPE_EQ(Cotton::MakeUnsigned<int>, unsigned int);
+    EXPECT_TYPE_EQ(Cotton::MakeUnsigned<const signed char>, const unsigned char);
+    EXPECT_TYPE_EQ(Cotton::MakeUnsigned<const short>, const unsigned short);
+    EXPECT_TYPE_EQ(Cotton::MakeUnsigned<const int>, const unsigned int);
     EXPECT_TYPE_EQ(Cotton::MakeUnsigned<long>, unsigned long);
-    EXPECT_TYPE_EQ(Cotton::MakeUnsigned<long long>, unsigned long long);
+    EXPECT_TYPE_EQ(Cotton::MakeUnsigned<volatile long long>, volatile unsigned long long);
 
     EXPECT_TYPE_EQ(Cotton::MakeUnsigned<unsigned char>, unsigned char);
-    EXPECT_TYPE_EQ(Cotton::MakeUnsigned<unsigned short>, unsigned short);
-    EXPECT_TYPE_EQ(Cotton::MakeUnsigned<unsigned int>, unsigned int);
-    EXPECT_TYPE_EQ(Cotton::MakeUnsigned<unsigned long>, unsigned long);
+    EXPECT_TYPE_EQ(Cotton::MakeUnsigned<const unsigned short>, const unsigned short);
+    EXPECT_TYPE_EQ(Cotton::MakeUnsigned<const unsigned int>, const unsigned int);
+    EXPECT_TYPE_EQ(Cotton::MakeUnsigned<const unsigned long>, const unsigned long);
     EXPECT_TYPE_EQ(Cotton::MakeUnsigned<unsigned long long>, unsigned long long);
 
     EXPECT_TYPE_EQ(Cotton::MakeUnsigned<char>, Cotton::Uint8);
-    EXPECT_TYPE_EQ(Cotton::MakeUnsigned<char8_t>, Cotton::Uint8);
-    EXPECT_TYPE_EQ(Cotton::MakeUnsigned<char16_t>, Cotton::Uint16);
+    EXPECT_TYPE_EQ(Cotton::MakeUnsigned<volatile char8_t>, volatile Cotton::Uint8);
+    EXPECT_TYPE_EQ(Cotton::MakeUnsigned<volatile char16_t>, volatile Cotton::Uint16);
     EXPECT_TYPE_EQ(Cotton::MakeUnsigned<char32_t>, Cotton::Uint32);
 
     EXPECT_EQ(sizeof(Cotton::MakeUnsigned<wchar_t>), sizeof(wchar_t));
     EXPECT_TRUE(std::is_unsigned_v<Cotton::MakeUnsigned<wchar_t>>);
+    EXPECT_TRUE(std::is_const_v<Cotton::MakeSigned<const wchar_t>>);
 }
 
 TEST(TestTypeTransforms, RemoveExtent)
