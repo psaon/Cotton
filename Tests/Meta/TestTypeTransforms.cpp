@@ -1,6 +1,8 @@
 #include "CottonTest.h"
 #include "Cotton/Meta/TypeTransforms.h"
 
+#include <type_traits>
+
 TEST(TestTypeTransforms, AddConst)
 {
     EXPECT_TYPE_EQ(Cotton::AddConst<int>, const int);
@@ -109,6 +111,9 @@ TEST(TestTypeTransforms, MakeSigned)
     EXPECT_TYPE_EQ(Cotton::MakeSigned<char8_t>, Cotton::Int8);
     EXPECT_TYPE_EQ(Cotton::MakeSigned<char16_t>, Cotton::Int16);
     EXPECT_TYPE_EQ(Cotton::MakeSigned<char32_t>, Cotton::Int32);
+
+    EXPECT_EQ(sizeof(Cotton::MakeSigned<wchar_t>), sizeof(wchar_t));
+    EXPECT_TRUE(std::is_signed_v<Cotton::MakeSigned<wchar_t>>);
 }
 
 TEST(TestTypeTransforms, MakeUnsigned)
@@ -129,6 +134,9 @@ TEST(TestTypeTransforms, MakeUnsigned)
     EXPECT_TYPE_EQ(Cotton::MakeUnsigned<char8_t>, Cotton::Uint8);
     EXPECT_TYPE_EQ(Cotton::MakeUnsigned<char16_t>, Cotton::Uint16);
     EXPECT_TYPE_EQ(Cotton::MakeUnsigned<char32_t>, Cotton::Uint32);
+
+    EXPECT_EQ(sizeof(Cotton::MakeUnsigned<wchar_t>), sizeof(wchar_t));
+    EXPECT_TRUE(std::is_unsigned_v<Cotton::MakeUnsigned<wchar_t>>);
 }
 
 TEST(TestTypeTransforms, RemoveExtent)

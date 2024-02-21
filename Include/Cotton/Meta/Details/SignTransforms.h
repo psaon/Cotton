@@ -2,6 +2,7 @@
 
 #include "Cotton/Core/Types.h"
 
+#include "Cotton/Meta/Details/IntTypes.h"
 #include "Cotton/Meta/Details/IsQualifier.h"
 #include "Cotton/Meta/Details/Conditionals.h"
 
@@ -30,23 +31,19 @@
         using Type = unsigned type;       \
     };
 
-#define COTTON_DEFINE_MAKESIGNED_CHAR2_(ch, size) \
+#define COTTON_DEFINE_MAKESIGNED_CHAR_(ch)      \
+    template<>                                  \
+    struct ToSigned<ch>                         \
+    {                                           \
+        using Type = SignedIntType<sizeof(ch)>; \
+    };
+
+#define COTTON_DEFINE_MAKEUNSIGNED_CHAR_(ch)      \
     template<>                                    \
-    struct ToSigned<ch>                           \
+    struct ToUnsigned<ch>                         \
     {                                             \
-        using Type = Int##size;                   \
+        using Type = UnsignedIntType<sizeof(ch)>; \
     };
-
-#define COTTON_DEFINE_MAKEUNSIGNED_CHAR2_(ch, size) \
-    template<>                                      \
-    struct ToUnsigned<ch>                           \
-    {                                               \
-        using Type = Uint##size;                    \
-    };
-
-#define COTTON_DEFINE_MAKESIGNED_CHAR_(ch, size) COTTON_DEFINE_MAKESIGNED_CHAR2_(ch, size)
-#define COTTON_DEFINE_MAKEUNSIGNED_CHAR_(ch, size) \
-    COTTON_DEFINE_MAKEUNSIGNED_CHAR2_(ch, size)
 
 namespace Cotton
 {
@@ -63,10 +60,11 @@ namespace Cotton
         COTTON_DEFINE_MAKESIGNED_(long);
         COTTON_DEFINE_MAKESIGNED_(long long);
 
-        COTTON_DEFINE_MAKESIGNED_CHAR_(char, CHAR_BIT);
-        COTTON_DEFINE_MAKESIGNED_CHAR_(char8_t, 8);
-        COTTON_DEFINE_MAKESIGNED_CHAR_(char16_t, 16);
-        COTTON_DEFINE_MAKESIGNED_CHAR_(char32_t, 32);
+        COTTON_DEFINE_MAKESIGNED_CHAR_(char);
+        COTTON_DEFINE_MAKESIGNED_CHAR_(wchar_t);
+        COTTON_DEFINE_MAKESIGNED_CHAR_(char8_t);
+        COTTON_DEFINE_MAKESIGNED_CHAR_(char16_t);
+        COTTON_DEFINE_MAKESIGNED_CHAR_(char32_t);
 
         template<class T>
         struct ToUnsigned
@@ -79,10 +77,11 @@ namespace Cotton
         COTTON_DEFINE_MAKEUNSIGNED_(long);
         COTTON_DEFINE_MAKEUNSIGNED_(long long);
 
-        COTTON_DEFINE_MAKEUNSIGNED_CHAR_(char, CHAR_BIT);
-        COTTON_DEFINE_MAKEUNSIGNED_CHAR_(char8_t, 8);
-        COTTON_DEFINE_MAKEUNSIGNED_CHAR_(char16_t, 16);
-        COTTON_DEFINE_MAKEUNSIGNED_CHAR_(char32_t, 32);
+        COTTON_DEFINE_MAKEUNSIGNED_CHAR_(char);
+        COTTON_DEFINE_MAKEUNSIGNED_CHAR_(wchar_t);
+        COTTON_DEFINE_MAKEUNSIGNED_CHAR_(char8_t);
+        COTTON_DEFINE_MAKEUNSIGNED_CHAR_(char16_t);
+        COTTON_DEFINE_MAKEUNSIGNED_CHAR_(char32_t);
 
         template<class T, bool Const, bool Volatile>
         struct AddQualifiers
