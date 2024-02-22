@@ -21,6 +21,7 @@ project(TestMeta)
 add_executable(TestMeta
     "Meta/TestConcepts.cpp"
     "Meta/TestExTypeOps.cpp"
+    "Meta/TestIsConstEvaluated.cpp"
     "Meta/TestTypeOps.cpp"
     "Meta/TestTypeTraits.cpp"
     "Meta/TestTypeTransforms.cpp"
