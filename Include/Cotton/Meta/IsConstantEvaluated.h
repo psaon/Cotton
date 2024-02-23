@@ -5,8 +5,8 @@
 #include "Cotton/Core/Predefined.h"
 #include "Cotton/Core/FeatureChecks.h"
 
-#if COTTON_HAS_BUILTIN(__is_constant_evaluated)
-    #define COTTON_BUILTIN_IS_CONST_EVALUATED() __is_constant_evaluated()
+#if COTTON_HAS_BUILTIN(__builtin_is_constant_evaluated)
+    #define COTTON_BUILTIN_IS_CONST_EVALUATED() __builtin_is_constant_evaluated()
 #elif __cpp_if_consteval < 202106L
     #include <type_traits>
     #define COTTON_BUILTIN_IS_CONST_EVALUATED() ::std::is_constant_evaluated()
