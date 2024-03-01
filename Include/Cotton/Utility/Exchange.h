@@ -1,6 +1,7 @@
 #pragma once
 
 #include "Cotton/Utility/Move.h"
+#include "Cotton/Utility/Forward.h"
 
 namespace Cotton
 {
