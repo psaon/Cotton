@@ -48,6 +48,11 @@ set(COTTON_HEADERS
     "Include/Cotton/Meta/IsConstantEvaluated.h"
     "Include/Cotton/Meta/TypeTraits.h"
     "Include/Cotton/Meta/TypeTransforms.h"
+
+    "Include/Cotton/Utility/Exchange.h"
+    "Include/Cotton/Utility/Forward.h"
+    "Include/Cotton/Utility/Move.h"
+    "Include/Cotton/Utility/Swap.h"
 )
 
 set(COTTON_SOURCES

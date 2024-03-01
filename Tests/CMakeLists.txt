@@ -26,3 +26,9 @@ add_executable(TestMeta
     "Meta/TestTypeTraits.cpp"
     "Meta/TestTypeTransforms.cpp"
 )
+
+project(TestUtility)
+add_executable(TestUtility
+    "Utility/TestExchange.cpp"
+    "Utility/TestSwap.cpp"
+)
