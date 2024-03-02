@@ -7,5 +7,5 @@ trim_trailing_whitespace = true
 indent_style = space
 charset = utf-8
 
-[*.{h, hpp, c, cpp}]
+[*.{h,hpp,c,cpp}]
 indent_size = 4
