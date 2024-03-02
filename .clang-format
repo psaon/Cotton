@@ -23,7 +23,7 @@ AlignTrailingComments:
 AllowShortFunctionsOnASingleLine: All
 AllowShortIfStatementsOnASingleLine: Never
 AllowShortLambdasOnASingleLine: All
-AllowShortLoopsOnASingleLine: true
+AllowShortLoopsOnASingleLine: false
 AllowShortCaseLabelsOnASingleLine: true
 AlwaysBreakTemplateDeclarations: Yes
 
@@ -57,11 +57,11 @@ InsertNewlineAtEOF: true
 LambdaBodyIndentation: OuterScope
 NamespaceIndentation: All                       # Indent nested namespaces.
 PPIndentWidth: 4                                # Preprocessor indent width.
-PackConstructorInitializers: BinPack
+PackConstructorInitializers: NextLineOnly
 
 ReferenceAlignment: Pointer                     # Align reference like pointer.
 ReflowComments: true                            # Reflow comments according to the column limit.
-RemoveBracesLLVM: true                          # Remove braces according to LLVM style.
+RemoveBracesLLVM: false                         # Don't remove braces.
 RequiresExpressionIndentation: OuterScope       # Indent requires expression to outer scope.
 
 SortIncludes: false
