@@ -12,6 +12,11 @@ link_libraries(
     GTest::gmock
 )
 
+project(TestDebug)
+add_executable(TestDebug
+    "Debug/TestSourceLoc.cpp"
+)
+
 project(TestIterator)
 add_executable(TestIterator
     "Iterator/TestIterConcepts.cpp"

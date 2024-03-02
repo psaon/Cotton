@@ -16,6 +16,8 @@ set(COTTON_HEADERS
     "Include/Cotton/Core/FeatureChecks.h"
     "Include/Cotton/Core/Predefined.h"
 
+    "Include/Cotton/Debug/SourceLocation.h"
+
     "Include/Cotton/Meta/Details/ArrayTransforms.h"
     "Include/Cotton/Meta/Details/Comparisons.h"
     "Include/Cotton/Meta/Details/Conditionals.h"
