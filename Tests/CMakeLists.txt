@@ -32,6 +32,11 @@ add_executable(TestMeta
     "Meta/TestTypeTransforms.cpp"
 )
 
+project(TestString)
+add_executable(TestString
+    "String/TestCharTraits.cpp"
+)
+
 project(TestUtility)
 add_executable(TestUtility
     "Utility/TestExchange.cpp"

@@ -5,6 +5,10 @@
     GTEST_ASSERT_((CottonTesting::TestTypeEquality<tp1, tp2>(#tp1, #tp2)), \
                   GTEST_NONFATAL_FAILURE_)
 
+#define EXPECT_NULL(val) EXPECT_EQ((val), nullptr)
+#define EXPECT_ZERO(val) EXPECT_EQ((val), 0)
+#define EXPECT_NZ(val)   EXPECT_NE((val), 0)
+
 namespace CottonTesting
 {
     class ExampleClass
