@@ -31,10 +31,10 @@ namespace Cotton
         constexpr SourceLocation(SourceLocation&&) = default;
 
     public:
-        constexpr Uint32 Line() const { return line_; }
+        [[nodiscard]] constexpr Uint32 Line() const { return line_; }
 
-        constexpr const char* FileName() const { return file_path_; }
-        constexpr const char* FunctionName() const { return func_name_; }
+        [[nodiscard]] constexpr const char* FileName() const { return file_path_; }
+        [[nodiscard]] constexpr const char* FunctionName() const { return func_name_; }
 
     private:
         Uint32 line_;

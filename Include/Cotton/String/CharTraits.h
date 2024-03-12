@@ -52,6 +52,7 @@ namespace Cotton
             // clang-format off
             //? clang-format formats the while loop by tabbing & moving the semicolon to
             //? the next line.
+            [[nodiscard]]
             static constexpr Usize Length(const T* str)
             {
                 const T* end = str;
@@ -68,13 +69,20 @@ namespace Cotton
                     new (static_cast<void*>(to + i)) T(from[i]);
             }
 
-            static constexpr bool Equal(T ch1, T ch2) { return (ch1 == ch2); }
+            [[nodiscard]]
+            static constexpr bool Equal(T ch1, T ch2)
+            {
+                return (ch1 == ch2);
+            }
+
+            [[nodiscard]]
             static constexpr bool LessThan(T ch1, T ch2)
             {
                 using Unsgn = MakeUnsigned<T>;
                 return (static_cast<Unsgn>(ch1) < static_cast<Unsgn>(ch2));
             }
 
+            [[nodiscard]]
             static constexpr int Compare(const T* str1, const T* str2, Usize count)
             {
                 for (Usize i = 0; i < count; ++i)
@@ -88,6 +96,7 @@ namespace Cotton
                 return 0;
             }
 
+            [[nodiscard]]
             static const T* Find(const T* str, Usize count, const T& ch)
             {
                 for (Usize i = 0; i < count; ++i)
@@ -117,6 +126,7 @@ namespace Cotton
         using IntType = typename GenericCharTraits_::IntType;
 
     public:
+        [[nodiscard]]
         static constexpr Usize Length(const char* str)
         {
             if (IsConstantEvaluated())
@@ -133,24 +143,32 @@ namespace Cotton
             COTTON_BUILTIN_MEMCPY(to, from, count);
         }
 
-        static constexpr bool Equal(char ch1, char ch2) { return (ch1 == ch2); }
+        [[nodiscard]]
+        static constexpr bool Equal(char ch1, char ch2)
+        {
+            return (ch1 == ch2);
+        }
+
+        [[nodiscard]]
         static constexpr bool LessThan(char lhs, char rhs)
         {
             return (static_cast<unsigned char>(lhs) < static_cast<unsigned char>(rhs));
         }
 
+        [[nodiscard]]
         static constexpr int Compare(const char* str1, const char* str2, Usize count)
         {
             if (IsConstantEvaluated())
-                GenericCharTraits_::Compare(str1, str2, count);
+                return GenericCharTraits_::Compare(str1, str2, count);
 
             return COTTON_BUILTIN_MEMCMP(str1, str2, count);
         }
 
+        [[nodiscard]]
         static constexpr const char* Find(const char* str, Usize count, const char& ch)
         {
             if (IsConstantEvaluated())
-                GenericCharTraits_::Find(str, count, ch);
+                return GenericCharTraits_::Find(str, count, ch);
 
             return static_cast<const char*>(COTTON_BUILTIN_MEMCHR(str, count, ch));
         }
@@ -167,6 +185,7 @@ namespace Cotton
         using IntType = typename GenericCharTraits_::IntType;
 
     public:
+        [[nodiscard]]
         static constexpr Usize Length(const wchar_t* str)
         {
             if (IsConstantEvaluated())
@@ -183,26 +202,34 @@ namespace Cotton
             COTTON_BUILTIN_MEMCPY(to, from, count * sizeof(wchar_t));
         }
 
-        static constexpr bool Equal(wchar_t ch1, wchar_t ch2) { return (ch1 == ch2); }
+        [[nodiscard]]
+        static constexpr bool Equal(wchar_t ch1, wchar_t ch2)
+        {
+            return (ch1 == ch2);
+        }
+
+        [[nodiscard]]
         static constexpr bool LessThan(wchar_t lhs, wchar_t rhs)
         {
             return GenericCharTraits_::LessThan(lhs, rhs);
         }
 
+        [[nodiscard]]
         static constexpr int Compare(const wchar_t* str1, const wchar_t* str2,
                                      Usize count)
         {
             if (IsConstantEvaluated())
-                GenericCharTraits_::Compare(str1, str2, count);
+                return GenericCharTraits_::Compare(str1, str2, count);
 
             return COTTON_BUILTIN_WMEMCMP(str1, str2, count);
         }
 
+        [[nodiscard]]
         static constexpr const wchar_t* Find(const wchar_t* str, Usize count,
                                              const wchar_t& ch)
         {
             if (IsConstantEvaluated())
-                GenericCharTraits_::Find(str, count, ch);
+                return GenericCharTraits_::Find(str, count, ch);
 
             return static_cast<const wchar_t*>(COTTON_BUILTIN_WMEMCHR(str, count, ch));
         }
@@ -219,6 +246,7 @@ namespace Cotton
         using IntType = typename GenericCharTraits_::IntType;
 
     public:
+        [[nodiscard]]
         static constexpr Usize Length(const char8_t* str)
         {
             return GenericCharTraits_::Length(str);
@@ -232,18 +260,29 @@ namespace Cotton
                 COTTON_BUILTIN_MEMCPY(to, from, count * sizeof(char8_t));
         }
 
-        static constexpr bool Equal(char8_t ch1, char8_t ch2) { return (ch1 == ch2); }
-        static constexpr bool LessThan(char8_t lhs, char8_t rhs) { return (lhs < rhs); }
+        [[nodiscard]]
+        static constexpr bool Equal(char8_t ch1, char8_t ch2)
+        {
+            return (ch1 == ch2);
+        }
 
+        [[nodiscard]]
+        static constexpr bool LessThan(char8_t lhs, char8_t rhs)
+        {
+            return (lhs < rhs);
+        }
+
+        [[nodiscard]]
         static constexpr int Compare(const char8_t* str1, const char8_t* str2,
                                      Usize count)
         {
             if (IsConstantEvaluated())
-                GenericCharTraits_::Compare(str1, str2, count);
+                return GenericCharTraits_::Compare(str1, str2, count);
 
             return COTTON_BUILTIN_MEMCMP(str1, str2, count * sizeof(char8_t));
         }
 
+        [[nodiscard]]
         static constexpr const char8_t* Find(const char8_t* str, Usize count,
                                              const char8_t& ch)
         {
@@ -265,6 +304,7 @@ namespace Cotton
         using IntType = typename GenericCharTraits_::IntType;
 
     public:
+        [[nodiscard]]
         static constexpr Usize Length(const char16_t* str)
         {
             return GenericCharTraits_::Length(str);
@@ -278,18 +318,28 @@ namespace Cotton
                 COTTON_BUILTIN_MEMCPY(to, from, count * sizeof(char16_t));
         }
 
-        static constexpr bool Equal(char16_t ch1, char16_t ch2) { return (ch1 == ch2); }
-        static constexpr bool LessThan(char16_t lhs, char16_t rhs) { return (lhs < rhs); }
+        [[nodiscard]]
+        static constexpr bool Equal(char16_t ch1, char16_t ch2)
+        {
+            return (ch1 == ch2);
+        }
 
+        [[nodiscard]]
+        static constexpr bool LessThan(char16_t lhs, char16_t rhs)
+        {
+            return (lhs < rhs);
+        }
+
+        [[nodiscard]]
         static constexpr int Compare(const char16_t* str1, const char16_t* str2,
                                      Usize count)
         {
             if (IsConstantEvaluated())
-                GenericCharTraits_::Compare(str1, str2, count);
+                return GenericCharTraits_::Compare(str1, str2, count);
 
             return COTTON_BUILTIN_MEMCMP(str1, str2, count * sizeof(char16_t));
         }
-
+        [[nodiscard]]
         static constexpr const char16_t* Find(const char16_t* str, Usize count,
                                               const char16_t& ch)
         {
@@ -308,6 +358,7 @@ namespace Cotton
         using IntType = typename GenericCharTraits_::IntType;
 
     public:
+        [[nodiscard]]
         static constexpr Usize Length(const char32_t* str)
         {
             return GenericCharTraits_::Length(str);
@@ -321,18 +372,28 @@ namespace Cotton
                 COTTON_BUILTIN_MEMCPY(to, from, count * sizeof(char32_t));
         }
 
-        static constexpr bool Equal(char32_t ch1, char32_t ch2) { return (ch1 == ch2); }
-        static constexpr bool LessThan(char32_t lhs, char32_t rhs) { return (lhs < rhs); }
+        [[nodiscard]]
+        static constexpr bool Equal(char32_t ch1, char32_t ch2)
+        {
+            return (ch1 == ch2);
+        }
 
+        [[nodiscard]]
+        static constexpr bool LessThan(char32_t lhs, char32_t rhs)
+        {
+            return (lhs < rhs);
+        }
+
+        [[nodiscard]]
         static constexpr int Compare(const char32_t* str1, const char32_t* str2,
                                      Usize count)
         {
             if (IsConstantEvaluated())
-                GenericCharTraits_::Compare(str1, str2, count);
+                return GenericCharTraits_::Compare(str1, str2, count);
 
             return COTTON_BUILTIN_MEMCMP(str1, str2, count * sizeof(char32_t));
         }
-
+        [[nodiscard]]
         static constexpr const char32_t* Find(const char32_t* str, Usize count,
                                               const char32_t& ch)
         {
