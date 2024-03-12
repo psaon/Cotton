@@ -46,6 +46,9 @@ namespace Cotton
         template<class T>
         struct GenericCharTraits
         {
+            using CharType = T;
+            using IntType = SignedIntType<sizeof(T)>;
+
             // clang-format off
             //? clang-format formats the while loop by tabbing & moving the semicolon to
             //? the next line.
@@ -110,6 +113,10 @@ namespace Cotton
         using GenericCharTraits_ = Internal::GenericCharTraits<char>;
 
     public:
+        using CharType = typename GenericCharTraits_::CharType;
+        using IntType = typename GenericCharTraits_::IntType;
+
+    public:
         static constexpr Usize Length(const char* str)
         {
             if (IsConstantEvaluated())
@@ -156,6 +163,10 @@ namespace Cotton
         using GenericCharTraits_ = Internal::GenericCharTraits<wchar_t>;
 
     public:
+        using CharType = typename GenericCharTraits_::CharType;
+        using IntType = typename GenericCharTraits_::IntType;
+
+    public:
         static constexpr Usize Length(const wchar_t* str)
         {
             if (IsConstantEvaluated())
@@ -173,9 +184,9 @@ namespace Cotton
         }
 
         static constexpr bool Equal(wchar_t ch1, wchar_t ch2) { return (ch1 == ch2); }
-        static constexpr bool LessThan(wchar_t ch1, wchar_t ch2)
+        static constexpr bool LessThan(wchar_t lhs, wchar_t rhs)
         {
-            return GenericCharTraits_::LessThan(ch1, ch2);
+            return GenericCharTraits_::LessThan(lhs, rhs);
         }
 
         static constexpr int Compare(const wchar_t* str1, const wchar_t* str2,
@@ -204,6 +215,10 @@ namespace Cotton
         using GenericCharTraits_ = Internal::GenericCharTraits<char8_t>;
 
     public:
+        using CharType = typename GenericCharTraits_::CharType;
+        using IntType = typename GenericCharTraits_::IntType;
+
+    public:
         static constexpr Usize Length(const char8_t* str)
         {
             return GenericCharTraits_::Length(str);
@@ -218,7 +233,7 @@ namespace Cotton
         }
 
         static constexpr bool Equal(char8_t ch1, char8_t ch2) { return (ch1 == ch2); }
-        static constexpr bool LessThan(char8_t ch1, char8_t ch2) { return (ch1 < ch2); }
+        static constexpr bool LessThan(char8_t lhs, char8_t rhs) { return (lhs < rhs); }
 
         static constexpr int Compare(const char8_t* str1, const char8_t* str2,
                                      Usize count)
@@ -246,6 +261,10 @@ namespace Cotton
         using GenericCharTraits_ = Internal::GenericCharTraits<char16_t>;
 
     public:
+        using CharType = typename GenericCharTraits_::CharType;
+        using IntType = typename GenericCharTraits_::IntType;
+
+    public:
         static constexpr Usize Length(const char16_t* str)
         {
             return GenericCharTraits_::Length(str);
@@ -260,7 +279,7 @@ namespace Cotton
         }
 
         static constexpr bool Equal(char16_t ch1, char16_t ch2) { return (ch1 == ch2); }
-        static constexpr bool LessThan(char16_t ch1, char16_t ch2) { return (ch1 < ch2); }
+        static constexpr bool LessThan(char16_t lhs, char16_t rhs) { return (lhs < rhs); }
 
         static constexpr int Compare(const char16_t* str1, const char16_t* str2,
                                      Usize count)
@@ -285,6 +304,10 @@ namespace Cotton
         using GenericCharTraits_ = Internal::GenericCharTraits<char32_t>;
 
     public:
+        using CharType = typename GenericCharTraits_::CharType;
+        using IntType = typename GenericCharTraits_::IntType;
+
+    public:
         static constexpr Usize Length(const char32_t* str)
         {
             return GenericCharTraits_::Length(str);
@@ -299,7 +322,7 @@ namespace Cotton
         }
 
         static constexpr bool Equal(char32_t ch1, char32_t ch2) { return (ch1 == ch2); }
-        static constexpr bool LessThan(char32_t ch1, char32_t ch2) { return (ch1 < ch2); }
+        static constexpr bool LessThan(char32_t lhs, char32_t rhs) { return (lhs < rhs); }
 
         static constexpr int Compare(const char32_t* str1, const char32_t* str2,
                                      Usize count)
@@ -316,5 +339,4 @@ namespace Cotton
             return GenericCharTraits_::Find(str, count, ch);
         }
     };
-
 }   // namespace Cotton
