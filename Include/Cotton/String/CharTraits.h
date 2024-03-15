@@ -97,7 +97,7 @@ namespace Cotton
             }
 
             [[nodiscard]]
-            static const T* Find(const T* str, Usize count, const T& ch)
+            static constexpr const T* Find(const T* str, Usize count, const T& ch)
             {
                 for (Usize i = 0; i < count; ++i)
                 {
