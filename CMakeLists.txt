@@ -18,6 +18,12 @@ set(COTTON_HEADERS
 
     "Include/Cotton/Debug/SourceLocation.h"
 
+    "Include/Cotton/Error/Details/GeneralPanicHook.h"
+    "Include/Cotton/Error/Details/LinuxPanicHook.h"
+    "Include/Cotton/Error/Details/WindowsPanicHook.h"
+
+    "Include/Cotton/Error/Panic.h"
+
     "Include/Cotton/Meta/Details/ArrayTransforms.h"
     "Include/Cotton/Meta/Details/Comparisons.h"
     "Include/Cotton/Meta/Details/Conditionals.h"
@@ -59,6 +65,7 @@ set(COTTON_HEADERS
 
 set(COTTON_SOURCES
     "Source/Core/PolicyCheck.cpp"
+    "Source/Error/Panic.cpp"
 )
 
 set(COTTON_ROOT_DIR ${CMAKE_CURRENT_SOURCE_DIR})
